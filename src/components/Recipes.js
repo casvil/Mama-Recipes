@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { fetchRecipes } from '../actions/postActions';
+import { fetchRecipes } from '../actions/recipeActions';
 
 class Recipes extends Component {
   componentWillMount() {
