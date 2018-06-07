@@ -9,6 +9,12 @@ class Recipes extends Component {
     this.props.fetchRecipes();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.newRecipe) {
+      this.props.recipes.unshift(nextProps.newRecipe);
+    }
+  }
+
   render() {
     const recipeItems = this.props.recipes.map(recipe => (
       <div key={ recipe.id }>
@@ -32,7 +38,7 @@ Recipes.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  // recipesReducer is called recipes in combineRecuders
+  // recipeReducer is called recipes in combineRecuders
   recipes: state.recipes.items,
   newRecipe: state.recipes.item
 })
