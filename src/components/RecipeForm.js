@@ -49,12 +49,10 @@ class RecipeForm extends Component {
       </div>
     )
   }
-
-
-
-
-
-
-
-
 }
+
+RecipeForm.propTypes = {
+  createRecipe: PropTypes.func.isRequired
+}
+
+export default connect(null, { createRecipe })(RecipeForm);
