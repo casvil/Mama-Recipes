@@ -40,7 +40,7 @@ class RecipeForm extends Component {
           </div>
           <br />
           <div>
-            <label>Difficult: </label><br />
+            <label>Difficulty: </label><br />
             <textarea name="difficulty" onChange={ this.onChange } value={ this.state.difficulty }/>
           </div>
           <br />

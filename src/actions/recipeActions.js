@@ -9,17 +9,17 @@ export const fetchRecipes = () => dispatch => {
     }));
 }
 
-export const createRecipe = (postData) => dispatch => {
+export const createRecipe = (recipeData) => dispatch => {
   fetch('https://my-json-server.typicode.com/casvil/recipes/recipes', {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
     },
-    body: JSON.stringify(postData)
+    body: JSON.stringify(recipeData)
   })
     .then(res => res.json())
-    .then(post => dispatch({
+    .then(recipe => dispatch({
       type: NEW_RECIPE,
-      payload: post
+      payload: recipe
     }));
 }
