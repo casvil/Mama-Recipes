@@ -9,6 +9,7 @@ class RecipeForm extends Component {
     super(props);
 
     this.state = {
+      id: 'fake-json-server-id',
       name: '',
       difficulty: ''
     };
@@ -22,6 +23,7 @@ class RecipeForm extends Component {
     e.preventDefault();
 
     const recipe = {
+      id: this.state.id,
       name: this.state.name,
       difficulty: this.state.difficulty
     };
