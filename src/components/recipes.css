@@ -1,0 +1,9 @@
+/* Using Swedish palette from Flat UI colors - https://flatuicolors.com/palette/se */
+
+.recipes {
+  padding: 0 10px;
+}
+
+.recipe {
+  border: 1px solid #1e272e;
+}

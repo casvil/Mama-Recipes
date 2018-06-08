@@ -2,10 +2,33 @@
   "recipes": [
     {
       "name": "Tortillicas fatas",
+      "ingredients": [
+        "huevos", "leche", "pan bimbo"
+      ],
+      "steps": [
+        {
+          "step1": "Step 1",
+          "step2": "Step 2",
+          "step3": "Step 3"
+        }
+      ],
+      "img": "./img-test.png",
+      "video": "./video-test.mp4",
       "difficulty": "2/5"
     },
     {
       "name": "Croquetas de pollo",
+      "ingredients": [
+        "pollo", "pan rallado", "huevos", "harina"
+      ],
+      "steps": [
+        {
+          "step1": "Step 1",
+          "step2": "Step 2"
+        }
+      ],
+      "img": "./img-test.png",
+      "video": "./video-test.mp4",
       "difficulty": "3/5"
     }
   ]

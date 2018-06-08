@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import './recipes.css';
 import { fetchRecipes } from '../actions/recipeActions';
 
 class Recipes extends Component {
@@ -17,13 +18,13 @@ class Recipes extends Component {
 
   render() {
     const recipeItems = this.props.recipes.map(recipe => (
-      <div key={ recipe.name }>
+      <div className="recipe" key={ recipe.name }>
         <h3>{ recipe.name }</h3>
       </div>
     ));
 
     return (
-      <div>
+      <div className="recipes">
         <h1>Recipes</h1>
         { recipeItems }
       </div>

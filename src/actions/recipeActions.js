@@ -13,7 +13,7 @@ export const createRecipe = (recipeData) => dispatch => {
   fetch('https://my-json-server.typicode.com/casvil/recipes/recipes', {
     method: 'POST',
     headers: {
-      'content-type': 'application/json'
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify(recipeData)
   })
