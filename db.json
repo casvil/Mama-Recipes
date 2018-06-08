@@ -1,10 +1,9 @@
 {
   "recipes": [
     {
+      "id": 1,
       "name": "Tortillicas fatas",
-      "ingredients": [
-        "huevos", "leche", "pan bimbo"
-      ],
+      "ingredients": ["huevos", "leche", "pan bimbo"],
       "steps": [
         {
           "step1": "Step 1",
@@ -17,10 +16,9 @@
       "difficulty": "2/5"
     },
     {
+      "id": 2,
       "name": "Croquetas de pollo",
-      "ingredients": [
-        "pollo", "pan rallado", "huevos", "harina"
-      ],
+      "ingredients": ["pollo", "pan rallado", "huevos", "harina"],
       "steps": [
         {
           "step1": "Step 1",
