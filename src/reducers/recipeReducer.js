@@ -1,4 +1,9 @@
-import { FETCH_RECIPES, NEW_RECIPE, SEARCH_RECIPE } from '../actions/types';
+import {
+  FETCH_RECIPES,
+  NEW_RECIPE,
+  SEARCH_RECIPE,
+  RESET_SEARCH
+} from '../actions/types';
 
 const initialState = {
   items: [],
@@ -26,6 +31,12 @@ export default function(state = initialState, action) {
         suggestions: state.items.filter(item =>
           item.name.toLowerCase().includes(action.payload.toLowerCase())
         )
+      };
+
+    case RESET_SEARCH:
+      return {
+        ...state,
+        suggestions: []
       };
 
     default:

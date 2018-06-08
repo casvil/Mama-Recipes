@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { searchRecipes } from '../actions/recipeActions';
+import { searchRecipes, resetSearch } from '../actions/recipeActions';
 import Suggestions from './Suggestions';
 
 class Search extends Component {
@@ -18,6 +18,8 @@ class Search extends Component {
       () => {
         if (this.state.query && this.state.query.length > 1) {
           this.props.searchRecipes(this.state.query);
+        } else {
+          this.props.resetSearch();
         }
       }
     );
@@ -39,6 +41,7 @@ class Search extends Component {
 
 Search.propTypes = {
   searchRecipes: PropTypes.func.isRequired,
+  resetSearch: PropTypes.func.isRequired,
   suggestions: PropTypes.array.isRequired
 };
 
@@ -48,5 +51,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { searchRecipes }
+  { searchRecipes, resetSearch }
 )(Search);
