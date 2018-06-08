@@ -1,4 +1,4 @@
-import { FETCH_RECIPES, NEW_RECIPE } from './types';
+import { FETCH_RECIPES, NEW_RECIPE, SEARCH_RECIPE } from './types';
 
 export const fetchRecipes = () => dispatch => {
   fetch('https://my-json-server.typicode.com/casvil/recipes/recipes')
@@ -26,4 +26,11 @@ export const createRecipe = recipeData => dispatch => {
         payload: recipe
       })
     );
+};
+
+export const searchRecipes = inputSearch => dispatch => {
+  dispatch({
+    type: SEARCH_RECIPE,
+    payload: inputSearch
+  });
 };
