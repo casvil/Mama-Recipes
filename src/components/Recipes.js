@@ -20,7 +20,11 @@ class Recipes extends Component {
     const recipeItems = this.props.recipes.map(recipe => (
       <div className="recipes__recipe" key={recipe.name}>
         <h3>{recipe.name}</h3>
-        <ul>{recipe.ingredients.map(ingredient => <li>{ingredient}</li>)}</ul>
+        <ul>
+          {recipe.ingredients.map(ingredient => (
+            <li key={ingredient}>{ingredient}</li>
+          ))}
+        </ul>
       </div>
     ));
 
