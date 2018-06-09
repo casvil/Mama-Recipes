@@ -1,16 +1,19 @@
 /* Using Swedish palette from Flat UI colors - https://flatuicolors.com/palette/se */
 
 .recipes {
-  display: grid;
-  grid-template-columns: 4;
-  grid-template-rows: auto;
   padding: 0 10px;
 }
 
-.recipes__header {}
+.recipes__header {
+  grid-column: span 5;
+}
 
-.recipes__body {}
+.recipes__body {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px;
+}
 
-.recipe {
+.recipes__recipe {
   border: 1px solid #1e272e;
 }

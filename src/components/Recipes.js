@@ -18,15 +18,18 @@ class Recipes extends Component {
 
   render() {
     const recipeItems = this.props.recipes.map(recipe => (
-      <div className="recipe" key={recipe.name}>
+      <div className="recipes__recipe" key={recipe.name}>
         <h3>{recipe.name}</h3>
+        <ul>{recipe.ingredients.map(ingredient => <li>{ingredient}</li>)}</ul>
       </div>
     ));
 
     return (
       <div className="recipes">
-        <h1 className="recipes__header">Recipes</h1>
-        <div className="recipes__body">{recipeItems}</div>
+        <div className="recipes__body">
+          <h1 className="recipes__header">Recipes</h1>
+          {recipeItems}
+        </div>
       </div>
     );
   }
