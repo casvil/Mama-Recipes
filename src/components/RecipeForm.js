@@ -11,6 +11,10 @@ class RecipeForm extends Component {
     this.state = {
       id: 'fake-json-server-id',
       name: '',
+      ingredients: [],
+      steps: [],
+      img: '',
+      video: '',
       difficulty: ''
     };
   }
@@ -25,6 +29,10 @@ class RecipeForm extends Component {
     const recipe = {
       id: this.state.id,
       name: this.state.name,
+      ingredients: this.state.ingredients,
+      steps: this.state.steps,
+      img: this.state.img,
+      video: this.state.video,
       difficulty: this.state.difficulty
     };
 
