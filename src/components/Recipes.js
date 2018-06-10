@@ -18,7 +18,7 @@ class Recipes extends Component {
 
   render() {
     const recipeItems = this.props.recipes.map(recipe => (
-      <div className="recipes__recipe" key={recipe.name}>
+      <div className="recipes__recipe" key={recipe.id}>
         <h3>{recipe.name}</h3>
         <ul>
           {recipe.ingredients.map(ingredient => (
@@ -30,10 +30,8 @@ class Recipes extends Component {
 
     return (
       <div className="recipes">
-        <div className="recipes__body">
-          <h1 className="recipes__header">Recipes</h1>
-          {recipeItems}
-        </div>
+        <h1 className="recipes__header">Recipes</h1>
+        <div className="recipes__body">{recipeItems}</div>
       </div>
     );
   }

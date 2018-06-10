@@ -5,12 +5,12 @@
 }
 
 .recipes__header {
-  grid-column: span 5;
 }
 
 .recipes__body {
+  grid-column: span -1;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 20px;
 }
 
