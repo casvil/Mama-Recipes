@@ -5,6 +5,7 @@
   flex-direction: column;
   padding: 10px;
   background-color: #ffc048;
+  border-bottom: 1px solid #ffa801;
   color: #1e272e;
   height: 100%;
 }
@@ -15,14 +16,24 @@
 .recipes__body {
   grid-column: span -1;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
-}
-
-.recipes__recipe {
-  border: 1px solid black;
 }
 
 .recipe__name {
   padding-left: 10px;
+  color: #ffc048;
+}
+
+.recipes__recipe {
+  background-color: #ff5e57;
+  background-image: linear-gradient(135deg, #ffc048 50%, transparent 50%),
+    linear-gradient(225deg, #ffc048 50%, transparent 50%),
+    /* Bottom jagged */ linear-gradient(45deg, #ffc048 50%, transparent 50%),
+    linear-gradient(-45deg, #ffc048 50%, transparent 50%);
+  background-position:
+    /* Top jagged */ top left, top left,
+    /* Bottom jagged */ bottom left, bottom left;
+  background-size: 10px 10px;
+  background-repeat: repeat-x;
 }

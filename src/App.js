@@ -4,10 +4,11 @@ import { Provider } from 'react-redux';
 import store from './store';
 import './App.css';
 
+import Header from './components/Header';
+import Footer from './components/Footer';
 import Recipes from './components/Recipes';
 import RecipeForm from './components/RecipeForm';
 import Search from './components/Search';
-import Header from './components/Header';
 
 class App extends Component {
   render() {
@@ -21,6 +22,9 @@ class App extends Component {
             </div>
             <RecipeForm />
             <Recipes />
+            <div className="app__footer">
+              <Footer />
+            </div>
           </div>
         </Provider>
       </div>
