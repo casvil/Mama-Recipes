@@ -14,11 +14,12 @@ class App extends Component {
     return (
       <div>
         <Provider store={store}>
-          <div className="App">
-            <Header />
-            <Search />
+          <div className="app">
+            <div className="app__header">
+              <Header />
+              <Search />
+            </div>
             <RecipeForm />
-            <hr />
             <Recipes />
           </div>
         </Provider>

@@ -1,1 +1,9 @@
-.App {}
+.app {
+}
+
+.app__header {
+  display: flex;
+  align-items: center;
+  background-color: #ffa801;
+  justify-content: space-between;
+}

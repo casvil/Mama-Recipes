@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import './recipeForm.css';
 import { createRecipe } from '../actions/recipeActions';
 
 class RecipeForm extends Component {
@@ -41,12 +42,11 @@ class RecipeForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="recipe-form">
         <h1>Add Recipe</h1>
-        <form onSubmit={this.onSubmit}>
-          <div>
-            <label>Name: </label>
-            <br />
+        <form className="form" onSubmit={this.onSubmit}>
+          <div className="form__input">
+            <label className="form__label">Name</label>
             <input
               type="text"
               name="name"
@@ -54,17 +54,15 @@ class RecipeForm extends Component {
               value={this.state.name}
             />
           </div>
-          <br />
-          <div>
-            <label>Difficulty: </label>
-            <br />
-            <textarea
+          <div className="form__input">
+            <label className="form__label">Difficulty</label>
+            <input
+              type="text"
               name="difficulty"
               onChange={this.onChange}
               value={this.state.difficulty}
             />
           </div>
-          <br />
           <button type="submit">Submit</button>
         </form>
       </div>

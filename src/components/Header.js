@@ -5,7 +5,7 @@ import './header.css';
 
 const Header = () => {
   return (
-    <header className="header__header">
+    <header className="header">
       <img src={logo} className="header__logo" alt="logo" />
       <h1 className="header__title">
         Welcome to React{' '}
@@ -14,7 +14,6 @@ const Header = () => {
         </span>{' '}
         Recipes
       </h1>
-      <h4>Made with ♥ from Torcy, FR</h4>
     </header>
   );
 };

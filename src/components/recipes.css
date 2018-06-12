@@ -1,7 +1,12 @@
 /* Using Swedish palette from Flat UI colors - https://flatuicolors.com/palette/se */
 
 .recipes {
-  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: #ffc048;
+  color: #1e272e;
+  height: 100%;
 }
 
 .recipes__header {
@@ -15,5 +20,9 @@
 }
 
 .recipes__recipe {
-  border: 1px solid #1e272e;
+  border: 1px solid black;
+}
+
+.recipe__name {
+  padding-left: 10px;
 }

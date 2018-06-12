@@ -1,10 +1,12 @@
 .header {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  color: #1e272e;
 }
 
 .header__logo {
   animation: React-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 30px;
 }
 
 .header__header {
