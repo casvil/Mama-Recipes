@@ -1,0 +1,23 @@
+.header {
+  text-align: center;
+}
+
+.header__logo {
+  animation: React-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.header__header {
+}
+
+.header__title {
+}
+
+@keyframes React-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
