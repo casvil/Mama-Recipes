@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import '../css/typography.css';
 import './recipes.css';
 import { fetchRecipes } from '../actions/recipeActions';
 
@@ -30,7 +31,7 @@ class Recipes extends Component {
 
     return (
       <div className="recipes">
-        <h1 className="recipes__header">Recipes</h1>
+        <h1 className="h1-title">Recipes</h1>
         <div className="recipes__body">{recipeItems}</div>
       </div>
     );

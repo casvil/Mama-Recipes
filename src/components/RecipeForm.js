@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import '../css/typography.css';
 import './recipeForm.css';
 import { createRecipe } from '../actions/recipeActions';
 
@@ -43,7 +44,7 @@ class RecipeForm extends Component {
   render() {
     return (
       <div className="recipeForm">
-        <h1>Add Recipe</h1>
+        <h1 className="h1-title">Add Recipe</h1>
         <div className="form__wrapper">
           <form className="form" onSubmit={this.onSubmit}>
             <div className="form__input">
