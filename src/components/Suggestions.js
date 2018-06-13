@@ -1,10 +1,13 @@
 import React from 'react';
 
 const Suggestions = props => {
-  const suggestions = props.suggestions.map(suggestion => (
-    <li key={suggestion.name}>{suggestion.name}</li>
+  const suggestions = props.suggestions.map((suggestion, id) => (
+    <li key={id}>{suggestion.name}</li>
   ));
-  return <ul>{suggestions}</ul>;
+
+  if (props.active) return <ul>{suggestions}</ul>;
+
+  return <div style={{ display: 'none' }} />;
 };
 
 export default Suggestions;

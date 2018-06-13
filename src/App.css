@@ -7,3 +7,9 @@
   background-color: #ffa801;
   justify-content: space-between;
 }
+
+@media (max-width: 600px) {
+  .app__header h1 {
+    font-size: 11px;
+  }
+}

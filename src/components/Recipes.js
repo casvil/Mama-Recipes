@@ -21,8 +21,8 @@ class Recipes extends Component {
       <div className="recipes__recipe" key={recipe.id}>
         <h3 className="recipe__name">{recipe.name}</h3>
         <ul className="recipe__ingredients">
-          {recipe.ingredients.map(ingredient => (
-            <li key={ingredient}>{ingredient}</li>
+          {recipe.ingredients.map((ingredient, id) => (
+            <li key={id}>{ingredient}</li>
           ))}
         </ul>
       </div>

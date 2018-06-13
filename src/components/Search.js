@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import { searchRecipes, resetSearch } from '../actions/recipeActions';
 import Suggestions from './Suggestions';
+import './search.css';
 
 class Search extends Component {
   state = {
@@ -25,16 +26,26 @@ class Search extends Component {
     );
   };
 
+  isSuggestionsActive = () => {
+    if (this.state.query.length > 0) return true;
+    else return false;
+  };
+
   render() {
     return (
-      <form>
-        <input
-          placeholder="Search for ..."
-          ref={input => (this.search = input)}
-          onChange={this.handleInputChange}
-        />
-        <Suggestions suggestions={this.props.suggestions} />
-      </form>
+      <div className="search">
+        <form className="search__form">
+          <input
+            placeholder="Search for ..."
+            ref={input => (this.search = input)}
+            onChange={this.handleInputChange}
+          />
+          <Suggestions
+            active={this.isSuggestionsActive()}
+            suggestions={this.props.suggestions}
+          />
+        </form>
+      </div>
     );
   }
 }
