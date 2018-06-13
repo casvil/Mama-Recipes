@@ -5,9 +5,9 @@ import './footer.css';
 
 const Footer = () => {
   return (
-    <header className="header">
-      <img src={logo} className="header__logo" alt="logo" />
-      <h1 className="header__title">Made in Barcelona</h1>
+    <header className="footer">
+      <h6 className="footer__title">Made in Barcelona</h6>
+      <h6 className="footer__title">casvil</h6>
     </header>
   );
 };
