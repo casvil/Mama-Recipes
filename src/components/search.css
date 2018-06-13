@@ -1,0 +1,27 @@
+.search {
+  background-color: #ffc048;
+  padding: 10px;
+  border-bottom: #ffa801;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.search__form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.search__input {
+  margin-right: 15px;
+  padding: 10px;
+  border: 1px solid #ffa801;
+  border-radius: 3px;
+}
+
+.search__suggestions--active {
+}
+
+.search__suggestions--inactive {
+}
