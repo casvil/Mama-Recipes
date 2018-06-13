@@ -42,29 +42,33 @@ class RecipeForm extends Component {
 
   render() {
     return (
-      <div className="recipe-form">
+      <div className="recipeForm">
         <h1>Add Recipe</h1>
-        <form className="form" onSubmit={this.onSubmit}>
-          <div className="form__input">
-            <label className="form__label">Name</label>
-            <input
-              type="text"
-              name="name"
-              onChange={this.onChange}
-              value={this.state.name}
-            />
-          </div>
-          <div className="form__input">
-            <label className="form__label">Difficulty</label>
-            <input
-              type="text"
-              name="difficulty"
-              onChange={this.onChange}
-              value={this.state.difficulty}
-            />
-          </div>
-          <button type="submit">Submit</button>
-        </form>
+        <div className="form__wrapper">
+          <form className="form" onSubmit={this.onSubmit}>
+            <div className="form__input">
+              <label className="form__label">Name</label>
+              <input
+                type="text"
+                name="name"
+                onChange={this.onChange}
+                value={this.state.name}
+              />
+            </div>
+            <div className="form__input">
+              <label className="form__label">Difficulty</label>
+              <input
+                type="text"
+                name="difficulty"
+                onChange={this.onChange}
+                value={this.state.difficulty}
+              />
+            </div>
+            <button type="submit" className="form__input">
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
     );
   }

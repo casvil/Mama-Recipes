@@ -1,4 +1,5 @@
 .search {
+  flex: 5;
   background-color: #ffc048;
   padding: 10px;
   display: flex;
