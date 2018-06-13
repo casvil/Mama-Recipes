@@ -1,11 +1,15 @@
 import React from 'react';
 
+import './suggestions.css';
+
 const Suggestions = props => {
   const suggestions = props.suggestions.map((suggestion, id) => (
-    <li key={id}>{suggestion.name}</li>
+    <li className="suggestions__item" key={id}>
+      {suggestion.name}
+    </li>
   ));
 
-  if (props.active) return <ul>{suggestions}</ul>;
+  if (props.active) return <ul className="suggestions__list">{suggestions}</ul>;
 
   return <div style={{ display: 'none' }} />;
 };

@@ -18,8 +18,10 @@ class App extends Component {
           <div className="app__header">
             <Header />
           </div>
-          <Search />
-          <RecipeForm />
+          <div className="app__form-search">
+            <RecipeForm />
+            <Search />
+          </div>
           <Recipes />
           <div className="app__footer">
             <Footer />

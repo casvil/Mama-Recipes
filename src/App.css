@@ -2,10 +2,18 @@
 }
 
 .app__header {
+  background-color: #ff5e57;
   display: flex;
   align-items: center;
-  background-color: #ffa801;
   justify-content: space-between;
+}
+
+.app__form-search {
+  background-color: #ffc048;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 @media (max-width: 600px) {
