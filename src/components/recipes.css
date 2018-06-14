@@ -9,9 +9,6 @@
   color: #1e272e;
 }
 
-.recipes__header {
-}
-
 .recipes__body {
   grid-column: span -1;
   display: grid;
@@ -19,9 +16,20 @@
   grid-gap: 20px;
 }
 
+.recipe__ingredientList {
+  list-style: none;
+  padding: 10px;
+  margin-left: 10px;
+  background-color: white;
+  max-width: fit-content;
+}
+
 .recipe__name {
   padding-left: 10px;
   color: #1e272e;
+}
+
+.recipe__ingredient {
 }
 
 .recipes__recipe {
