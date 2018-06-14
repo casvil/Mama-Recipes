@@ -31,8 +31,8 @@ class RecipeForm extends Component {
     const recipe = {
       id: this.state.id,
       name: this.state.name,
-      ingredients: this.state.ingredients,
-      steps: this.state.steps,
+      ingredients: [this.state.ingredients],
+      steps: [this.state.steps],
       img: this.state.img,
       video: this.state.video,
       difficulty: this.state.difficulty
@@ -54,6 +54,44 @@ class RecipeForm extends Component {
                 name="name"
                 onChange={this.onChange}
                 value={this.state.name}
+              />
+            </div>
+            <div className="form__input">
+              <label className="form__label">Ingredients</label>
+              <input
+                type="text"
+                name="ingredients"
+                onChange={this.onChange}
+                value={this.state.ingredients}
+              />
+            </div>
+            <button>+ New ingredient</button>
+            <div className="form__input">
+              <label className="form__label">Steps</label>
+              <input
+                type="text"
+                name="steps"
+                onChange={this.onChange}
+                value={this.state.steps}
+              />
+            </div>
+            + New Step
+            <div className="form__input">
+              <label className="form__label">Img URL</label>
+              <input
+                type="text"
+                name="img"
+                onChange={this.onChange}
+                value={this.state.img}
+              />
+            </div>
+            <div className="form__input">
+              <label className="form__label">Video URL</label>
+              <input
+                type="text"
+                name="video"
+                onChange={this.onChange}
+                value={this.state.video}
               />
             </div>
             <div className="form__input">

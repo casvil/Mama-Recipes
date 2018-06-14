@@ -23,9 +23,12 @@
 .form__input {
   margin: 10px;
   margin-left: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .form__label {
   margin: 10px;
   margin-left: 0;
+  min-width: 100px;
 }
