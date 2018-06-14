@@ -28,11 +28,21 @@ class RecipeForm extends Component {
   onSubmit = e => {
     e.preventDefault();
 
+    /** Add a Validation method
+     *  Check if each input is an string
+     *  Check that that ingredients is comma separated
+     *  Check that img and video URLs are valid
+     **/
+
     const recipe = {
       id: this.state.id,
       name: this.state.name,
-      ingredients: [this.state.ingredients],
-      steps: [this.state.steps],
+      ingredients: this.state.ingredients.includes(',')
+        ? this.state.ingredients.split(',')
+        : [''],
+      steps: this.state.steps.includes(',')
+        ? this.state.steps.split(',')
+        : [''],
       img: this.state.img,
       video: this.state.video,
       difficulty: this.state.difficulty
@@ -50,8 +60,10 @@ class RecipeForm extends Component {
             <div className="form__input">
               <label className="form__label">Name</label>
               <input
+                className="form__textInput"
                 type="text"
                 name="name"
+                placeholder="Name"
                 onChange={this.onChange}
                 value={this.state.name}
               />
@@ -59,28 +71,32 @@ class RecipeForm extends Component {
             <div className="form__input">
               <label className="form__label">Ingredients</label>
               <input
+                className="form__textInput"
                 type="text"
                 name="ingredients"
+                placeholder="Ingredient 1, Ingredient 2, ..."
                 onChange={this.onChange}
                 value={this.state.ingredients}
               />
             </div>
-            <button>+ New ingredient</button>
             <div className="form__input">
               <label className="form__label">Steps</label>
               <input
+                className="form__textInput"
                 type="text"
                 name="steps"
+                placeholder="Step 1, Step 2, ..."
                 onChange={this.onChange}
                 value={this.state.steps}
               />
             </div>
-            + New Step
             <div className="form__input">
               <label className="form__label">Img URL</label>
               <input
+                className="form__textInput"
                 type="text"
                 name="img"
+                placeholder="Image URL"
                 onChange={this.onChange}
                 value={this.state.img}
               />
@@ -88,8 +104,10 @@ class RecipeForm extends Component {
             <div className="form__input">
               <label className="form__label">Video URL</label>
               <input
+                className="form__textInput"
                 type="text"
                 name="video"
+                placeholder="Video URL"
                 onChange={this.onChange}
                 value={this.state.video}
               />
@@ -97,13 +115,15 @@ class RecipeForm extends Component {
             <div className="form__input">
               <label className="form__label">Difficulty</label>
               <input
+                className="form__textInput"
                 type="text"
                 name="difficulty"
+                placeholder="Difficulty"
                 onChange={this.onChange}
                 value={this.state.difficulty}
               />
             </div>
-            <button type="submit" className="form__input">
+            <button type="submit" className="form__submit">
               Submit
             </button>
           </form>
