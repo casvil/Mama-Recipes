@@ -20,7 +20,7 @@
     },
     {
       "id": 3,
-      "name": "Tortillicas fatas",
+      "name": "Espaguettis carbonara",
       "ingredients": ["huevos", "leche", "pan bimbo"],
       "steps": ["Step 1", "Step 2", "Step 3"],
       "img": "./img-test.png",
@@ -29,7 +29,7 @@
     },
     {
       "id": 4,
-      "name": "Croquetas de pollo",
+      "name": "Espaguettis bolognesa",
       "ingredients": ["pollo", "pan rallado", "huevos", "harina"],
       "steps": ["Step 1", "Step 2", "Step 3"],
       "img": "./img-test.png",
@@ -38,7 +38,7 @@
     },
     {
       "id": 5,
-      "name": "Tortillicas fatas",
+      "name": "Pizza marguerita",
       "ingredients": ["huevos", "leche", "pan bimbo"],
       "steps": ["Step 1", "Step 2", "Step 3"],
       "img": "./img-test.png",
@@ -47,7 +47,7 @@
     },
     {
       "id": 6,
-      "name": "Croquetas de pollo",
+      "name": "Crocanti helado",
       "ingredients": ["pollo", "pan rallado", "huevos", "harina"],
       "steps": ["Step 1", "Step 2", "Step 3"],
       "img": "./img-test.png",
