@@ -41,9 +41,10 @@
   border-radius: 3px;
 }
 
-.form__submit {
+.form__submit,
+.form__toggle {
   width: 100px;
   height: 35px;
-  margin: 10px 0;
+  margin: 10px 10px 10px 0;
   border-radius: 3px;
 }
