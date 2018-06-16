@@ -13,8 +13,11 @@ export const fetchRecipes = () => dispatch => {
         type: FETCH_RECIPES,
         payload: recipes
       })
-    );
+    )
+    .catch(err => onError(err));
 };
+
+const onError = err => console.log(err);
 
 export const createRecipe = recipeData => dispatch => {
   fetch('https://my-json-server.typicode.com/casvil/recipes/recipes', {
@@ -30,7 +33,8 @@ export const createRecipe = recipeData => dispatch => {
         type: NEW_RECIPE,
         payload: recipe
       })
-    );
+    )
+    .catch(err => console.warn(err));
 };
 
 export const searchRecipes = inputSearch => dispatch => {
