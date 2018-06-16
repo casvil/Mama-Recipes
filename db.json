@@ -1,58 +1,35 @@
 {
-  "recipes": [
-    {
-      "id": 1,
-      "name": "Tortillicas fatas",
-      "ingredients": ["huevos", "leche", "pan bimbo"],
-      "steps": ["Step 1", "Step 2", "Step 3"],
-      "img": "./img-test.png",
-      "video": "./video-test.mp4",
-      "difficulty": "2/5"
-    },
-    {
-      "id": 2,
-      "name": "Croquetas de pollo",
-      "ingredients": ["pollo", "pan rallado", "huevos", "harina"],
-      "steps": ["Step 1", "Step 2", "Step 3"],
-      "img": "./img-test.png",
-      "video": "./video-test.mp4",
-      "difficulty": "3/5"
-    },
-    {
-      "id": 3,
-      "name": "Espaguettis carbonara",
-      "ingredients": ["huevos", "leche", "pan bimbo"],
-      "steps": ["Step 1", "Step 2", "Step 3"],
-      "img": "./img-test.png",
-      "video": "./video-test.mp4",
-      "difficulty": "2/5"
-    },
-    {
-      "id": 4,
-      "name": "Espaguettis bolognesa",
-      "ingredients": ["pollo", "pan rallado", "huevos", "harina"],
-      "steps": ["Step 1", "Step 2", "Step 3"],
-      "img": "./img-test.png",
-      "video": "./video-test.mp4",
-      "difficulty": "3/5"
-    },
-    {
-      "id": 5,
-      "name": "Pizza marguerita",
-      "ingredients": ["huevos", "leche", "pan bimbo"],
-      "steps": ["Step 1", "Step 2", "Step 3"],
-      "img": "./img-test.png",
-      "video": "./video-test.mp4",
-      "difficulty": "2/5"
-    },
-    {
-      "id": 6,
-      "name": "Crocanti helado",
-      "ingredients": ["pollo", "pan rallado", "huevos", "harina"],
-      "steps": ["Step 1", "Step 2", "Step 3"],
-      "img": "./img-test.png",
-      "video": "./video-test.mp4",
-      "difficulty": "3/5"
-    }
-  ]
+  "5b253195724e0210a62f850f": {
+    "_id": "5b253195724e0210a62f850f",
+    "id": 1,
+    "name": "Tortillicas fatas",
+    "img": "./img-test.png",
+    "video": "./video-test.mp4",
+    "difficulty": "2/5",
+    "__v": 0,
+    "steps": ["Step 1", "Step 2", "Step 3"],
+    "ingredients": ["huevos", "leche", "pan bimbo"]
+  },
+  "5b2531a189568910b2dbc8c8": {
+    "_id": "5b2531a189568910b2dbc8c8",
+    "id": 2,
+    "name": "Tortillicas fatas 2",
+    "img": "./img-test.png",
+    "video": "./video-test.mp4",
+    "difficulty": "2/5",
+    "__v": 0,
+    "steps": ["Step 1", "Step 2", "Step 3"],
+    "ingredients": ["huevos", "leche", "pan bimbo"]
+  },
+  "5b2531a9f589e010b8746bbb": {
+    "_id": "5b2531a9f589e010b8746bbb",
+    "id": 3,
+    "name": "Tortillicas fatas 3",
+    "img": "./img-test.png",
+    "video": "./video-test.mp4",
+    "difficulty": "2/5",
+    "__v": 0,
+    "steps": ["Step 1", "Step 2", "Step 3"],
+    "ingredients": ["huevos", "leche", "pan bimbo"]
+  }
 }
