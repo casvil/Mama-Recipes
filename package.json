@@ -8,12 +8,10 @@
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0",
-    "rimraf": "^2.6.2"
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "heroku-prebuild": "rimraf build && rimraf node_modules",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "test": "jest",
