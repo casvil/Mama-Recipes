@@ -6,7 +6,7 @@ import {
 } from './types';
 
 export const fetchRecipes = () => dispatch => {
-  fetch('https://my-json-server.typicode.com/casvil/recipes/recipes')
+  fetch('https://my-json-server.typicode.com/casvil/recipes/db')
     .then(res => res.json())
     .then(recipes =>
       dispatch({

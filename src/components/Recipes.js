@@ -11,18 +11,18 @@ class Recipes extends Component {
     this.props.fetchRecipes();
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.newRecipe) {
-      this.props.recipes.unshift(nextProps.newRecipe);
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.newRecipe) {
+  //     this.props.recipes.unshift(nextProps.newRecipe);
+  //   }
+  // }
 
   render() {
-    const recipeItems = this.props.recipes.map(recipe => (
-      <div className="recipes__recipe" key={recipe.id}>
-        <h3 className="recipe__name">{recipe.name}</h3>
+    const recipeItems = Object.keys(this.props.recipes).map(recipe => (
+      <div className="recipes__recipe" key={this.props.recipes[recipe].id}>
+        <h3 className="recipe__name">{this.props.recipes[recipe].name}</h3>
         <ul className="recipe__ingredientList">
-          {recipe.ingredients.map((ingredient, id) => (
+          {this.props.recipes[recipe].ingredients.map((ingredient, id) => (
             <li className="recipe__ingredient" key={id}>
               {ingredient}
             </li>
@@ -42,7 +42,7 @@ class Recipes extends Component {
 
 Recipes.propTypes = {
   fetchRecipes: PropTypes.func.isRequired,
-  recipes: PropTypes.array.isRequired,
+  recipes: PropTypes.object.isRequired,
   newRecipe: PropTypes.object
 };
 

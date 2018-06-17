@@ -6,7 +6,7 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  items: [],
+  items: {},
   item: {},
   suggestions: []
 };
