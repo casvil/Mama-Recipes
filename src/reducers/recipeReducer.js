@@ -28,11 +28,11 @@ export default function(state = initialState, action) {
     case SEARCH_RECIPE:
       return {
         ...state,
-        suggestions: Object.keys(state.items).map(item =>
-          state.items[item].name
-            .toLowerCase()
-            .includes(action.payload.toLowerCase())
-        )
+        suggestions: Object.keys(state.items)
+          .map(item => state.items[item])
+          .filter(item =>
+            item.name.toLowerCase().includes(action.payload.toLowerCase())
+          )
       };
 
     case RESET_SEARCH:
