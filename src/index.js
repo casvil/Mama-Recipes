@@ -1,8 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
+import { AppContainer } from 'react-hot-loader';
+
+import { store, history } from './store';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import './index.css';
+import App from './App';
+
+ReactDOM.render(
+  <AppContainer>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <App />
+      </ConnectedRouter>
+    </Provider>
+  </AppContainer>,
+  document.getElementById('root')
+);
 registerServiceWorker();

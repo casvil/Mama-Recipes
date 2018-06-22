@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
-
-import store from './store';
-import './App.css';
+import { Route, Switch } from 'react-router';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -10,24 +7,28 @@ import Recipes from './components/Recipes';
 import RecipeForm from './components/RecipeForm';
 import Search from './components/Search';
 
+import './App.css';
+
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
+      <Switch>
         <div className="app">
           <div className="app__header">
-            <Header />
+            <Route path="/" component={Header} />
           </div>
           <div className="app__form-search">
-            <RecipeForm />
-            <Search />
+            <Route path="/" component={Search} />
           </div>
-          <Recipes />
+          <div className="app__content">
+            <Route path="/recipe" component={RecipeForm} />
+            <Route path="/" component={Recipes} />
+          </div>
           <div className="app__footer">
-            <Footer />
+            <Route path="/" component={Footer} />
           </div>
         </div>
-      </Provider>
+      </Switch>
     );
   }
 }
