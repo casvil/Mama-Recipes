@@ -29,9 +29,7 @@
   color: #1e272e;
 }
 
-.recipe__ingredient {
-}
-
+/* toothsaw */
 .recipes__recipe {
   background-color: #ffa801;
   background-image: linear-gradient(135deg, #ffc048 50%, transparent 50%),

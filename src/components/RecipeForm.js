@@ -58,90 +58,88 @@ class RecipeForm extends Component {
 
   render() {
     return (
-      <div className="recipeForm">
+      <div>
         <h1 className="h1-title">Add Recipe</h1>
-        <div className="form__wrapper">
-          <form className="form" onSubmit={this.onSubmit}>
-            <div className="form__input">
-              <label className="form__label">Name</label>
-              <input
-                className="form__textInput"
-                type="text"
-                name="name"
-                placeholder="Name"
-                onChange={this.onChange}
-                value={this.state.name}
-              />
-            </div>
-            <div className="form__input">
-              <label className="form__label">Ingredients</label>
-              <input
-                className="form__textInput"
-                type="text"
-                name="ingredients"
-                placeholder="Ingredient 1, Ingredient 2, ..."
-                onChange={this.onChange}
-                value={this.state.ingredients}
-              />
-            </div>
-            <div className="form__input">
-              <label className="form__label">Steps</label>
-              <input
-                className="form__textInput"
-                type="text"
-                name="steps"
-                placeholder="Step 1, Step 2, ..."
-                onChange={this.onChange}
-                value={this.state.steps}
-              />
-            </div>
-            <div className="form__input">
-              <label className="form__label">Img URL</label>
-              <input
-                className="form__textInput"
-                type="text"
-                name="img"
-                placeholder="Image URL"
-                onChange={this.onChange}
-                value={this.state.img}
-              />
-            </div>
-            <div className="form__input">
-              <label className="form__label">Video URL</label>
-              <input
-                className="form__textInput"
-                type="text"
-                name="video"
-                placeholder="Video URL"
-                onChange={this.onChange}
-                value={this.state.video}
-              />
-            </div>
-            <div className="form__input">
-              <label className="form__label">Difficulty</label>
-              <input
-                className="form__textInput"
-                type="text"
-                name="difficulty"
-                placeholder="Difficulty"
-                onChange={this.onChange}
-                value={this.state.difficulty}
-              />
-            </div>
-            <div>
-              <button
-                type="submit"
-                hidden={this.state.toggle}
-                className="form__submit"
-              >
-                {'Submit'}
-              </button>
-              <button onClick={this.onToggle} className="form__toggle">
-                {this.state.toggle ? 'New recipe' : 'Cancel'}
-              </button>
-            </div>
-          </form>
-        </div>
+        <form className="form" onSubmit={this.onSubmit}>
+          <div className="form__input">
+            <label className="form__label">Name</label>
+            <input
+              className="form__textInput"
+              type="text"
+              name="name"
+              placeholder="Name"
+              onChange={this.onChange}
+              value={this.state.name}
+            />
+          </div>
+          <div className="form__input">
+            <label className="form__label">Ingredients</label>
+            <input
+              className="form__textInput"
+              type="text"
+              name="ingredients"
+              placeholder="Ingredient 1, Ingredient 2, ..."
+              onChange={this.onChange}
+              value={this.state.ingredients}
+            />
+          </div>
+          <div className="form__input">
+            <label className="form__label">Steps</label>
+            <input
+              className="form__textInput"
+              type="text"
+              name="steps"
+              placeholder="Step 1, Step 2, ..."
+              onChange={this.onChange}
+              value={this.state.steps}
+            />
+          </div>
+          <div className="form__input">
+            <label className="form__label">Img URL</label>
+            <input
+              className="form__textInput"
+              type="text"
+              name="img"
+              placeholder="Image URL"
+              onChange={this.onChange}
+              value={this.state.img}
+            />
+          </div>
+          <div className="form__input">
+            <label className="form__label">Video URL</label>
+            <input
+              className="form__textInput"
+              type="text"
+              name="video"
+              placeholder="Video URL"
+              onChange={this.onChange}
+              value={this.state.video}
+            />
+          </div>
+          <div className="form__input">
+            <label className="form__label">Difficulty</label>
+            <input
+              className="form__textInput"
+              type="text"
+              name="difficulty"
+              placeholder="Difficulty"
+              onChange={this.onChange}
+              value={this.state.difficulty}
+            />
+          </div>
+          <div>
+            <button
+              type="submit"
+              // hidden={this.state.toggle}
+              className="form__submit"
+            >
+              {'Submit'}
+            </button>
+            <button onClick={this.onToggle} className="form__toggle">
+              {this.state.toggle ? 'New recipe' : 'Cancel'}
+            </button>
+          </div>
+        </form>
       </div>
     );
   }
