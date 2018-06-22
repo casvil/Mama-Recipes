@@ -12,7 +12,6 @@ class RecipeForm extends Component {
 
     this.state = {
       id: 'fake-json-server-id',
-      toggle: false,
       name: '',
       ingredients: [],
       steps: [],
@@ -24,10 +23,6 @@ class RecipeForm extends Component {
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-  };
-
-  onToggle = e => {
-    this.setState({ toggle: !this.state.toggle });
   };
 
   onSubmit = e => {
@@ -128,15 +123,8 @@ class RecipeForm extends Component {
             />
           </div>
           <div>
-            <button
-              type="submit"
-              // hidden={this.state.toggle}
-              className="form__submit"
-            >
+            <button type="submit" className="form__submit">
               {'Submit'}
-            </button>
-            <button onClick={this.onToggle} className="form__toggle">
-              {this.state.toggle ? 'New recipe' : 'Cancel'}
             </button>
           </div>
         </form>

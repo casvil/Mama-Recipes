@@ -40,8 +40,7 @@
   border-radius: 3px;
 }
 
-.form__submit,
-.form__toggle {
+.form__submit {
   width: 100px;
   height: 35px;
   margin: 10px 10px 10px 0;
