@@ -1,24 +1,40 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 
-class Login extends Component {
-  render() {
-    return (
-      <div>
-        <form>
-          Login
-          <div>
-            <label>Email</label>
-            <Field name="email" component="input" />
-          </div>
-          <div>
-            <label>Password</label>
-            <Field name="password" component="input" />
-          </div>
-        </form>
-      </div>
-    );
-  }
-}
+const validate = values => {
+  const errors = {};
 
-export default reduxForm({ form: 'login' })(Login);
+  if (!values.email) errors.email = 'Required';
+  if (!values.password) errors.password = 'Required';
+  return errors;
+};
+
+// the following function deconstructs the received params and renders
+// an input with props and if some parameters are true displays an span
+const renderInput = ({ input, meta, label }) => {
+  return (
+    <div>
+      <label>{label}</label>
+      <input {...input} />
+      {meta.error && meta.touched && <span>{meta.error}</span>}
+    </div>
+  );
+};
+
+// let Login = ({ handleSubmit, submitting }) => {
+let Login = () => {
+  return (
+    // <form onSubmit={handleSubmit()}>
+    <form>
+      Login
+      <Field name="email" label="Email" component={renderInput} />
+      <Field name="password" label="Password" component={renderInput} />
+      <button type="submit">Submit</button>
+      {/* <button type="submit" disabled={submitting}> */}
+    </form>
+  );
+};
+
+export default reduxForm({ form: 'login', destroyOnUnmount: false, validate })(
+  Login
+);

@@ -15,10 +15,13 @@ class UserRegister extends Component {
             <label>Password</label>
             <Field name="password" component="input" />
           </div>
+          <button type="submit">Submit</button>
         </form>
       </div>
     );
   }
 }
 
-export default reduxForm({ form: 'register' })(UserRegister);
+export default reduxForm({ form: 'register', destroyOnUnmount: false })(
+  UserRegister
+);
