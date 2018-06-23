@@ -2,6 +2,8 @@
   display: flex;
   align-items: center;
   color: #1e272e;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .header__logo {
@@ -9,10 +11,12 @@
   height: 30px;
 }
 
-.header__header {
+.header__title {
+  flex: 3;
 }
 
-.header__title {
+.header__item {
+  flex: 1;
 }
 
 @keyframes React-logo-spin {
