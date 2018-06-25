@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
+
+import userReducer from './userReducer';
+import recipeReducer from './recipeReducer';
 import { reducer as formReducer } from 'redux-form';
 
-import recipeReducer from './recipeReducer';
-
 export default combineReducers({
+  user: userReducer,
   recipes: recipeReducer,
   form: formReducer
 });
