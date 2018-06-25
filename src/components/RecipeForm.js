@@ -44,11 +44,10 @@ class RecipeForm extends Component {
         : [''],
       img: this.state.img,
       video: this.state.video,
-      difficulty: this.state.difficulty,
-      authToken: this.props.user.authToken
+      difficulty: this.state.difficulty
     };
 
-    this.props.createRecipe(recipe);
+    this.props.createRecipe(recipe, this.props.user.authToken);
   };
 
   render() {

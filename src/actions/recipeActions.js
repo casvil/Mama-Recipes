@@ -6,8 +6,6 @@ import {
   ERROR_NETWORK
 } from './types';
 
-const onError = err => console.log(err);
-
 export const fetchRecipes = () => dispatch => {
   fetch('https://my-json-server.typicode.com/casvil/recipes/db')
     .then(res => res.json())
@@ -20,12 +18,12 @@ export const fetchRecipes = () => dispatch => {
     .catch(err => onError(err));
 };
 
-export const createRecipe = recipeData => dispatch => {
+export const createRecipe = (recipeData, authToken) => dispatch => {
   fetch('http://localhost:3090/recipe', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      authorization: recipeData.authToken
+      authorization: authToken
     },
     body: JSON.stringify(recipeData)
   })
