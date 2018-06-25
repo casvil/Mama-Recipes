@@ -43,8 +43,7 @@ const mapStateToProps = state => ({
 });
 
 export default reduxForm({
-  form: 'register',
-  destroyOnUnmount: false
+  form: 'register'
 })(
   connect(
     mapStateToProps,

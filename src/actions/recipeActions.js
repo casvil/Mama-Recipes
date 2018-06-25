@@ -2,7 +2,8 @@ import {
   FETCH_RECIPES,
   NEW_RECIPE,
   SEARCH_RECIPE,
-  RESET_SEARCH
+  RESET_SEARCH,
+  ERROR_NETWORK
 } from './types';
 
 const onError = err => console.log(err);
@@ -20,10 +21,11 @@ export const fetchRecipes = () => dispatch => {
 };
 
 export const createRecipe = recipeData => dispatch => {
-  fetch('https://my-json-server.typicode.com/casvil/recipes/recipes', {
+  fetch('http://localhost:3090/recipe', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      authorization: recipeData.authToken
     },
     body: JSON.stringify(recipeData)
   })
@@ -31,10 +33,10 @@ export const createRecipe = recipeData => dispatch => {
     .then(recipe =>
       dispatch({
         type: NEW_RECIPE,
-        payload: recipe
+        payload: recipeData
       })
-    )
-    .catch(err => console.warn(err));
+    );
+  // .catch(err => console.warn(err));
 };
 
 export const searchRecipes = inputSearch => dispatch => {

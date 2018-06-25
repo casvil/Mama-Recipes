@@ -11,7 +11,6 @@ class RecipeForm extends Component {
     super(props);
 
     this.state = {
-      id: 'fake-json-server-id',
       name: '',
       ingredients: [],
       steps: [],
@@ -45,7 +44,8 @@ class RecipeForm extends Component {
         : [''],
       img: this.state.img,
       video: this.state.video,
-      difficulty: this.state.difficulty
+      difficulty: this.state.difficulty,
+      authToken: this.props.user.authToken
     };
 
     this.props.createRecipe(recipe);
@@ -134,10 +134,15 @@ class RecipeForm extends Component {
 }
 
 RecipeForm.propTypes = {
-  createRecipe: PropTypes.func.isRequired
+  createRecipe: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired
 };
 
+const mapStateToProps = state => ({
+  user: state.user
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { createRecipe }
 )(RecipeForm);
