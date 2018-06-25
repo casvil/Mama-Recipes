@@ -5,6 +5,8 @@ import {
   RESET_SEARCH
 } from './types';
 
+const onError = err => console.log(err);
+
 export const fetchRecipes = () => dispatch => {
   fetch('https://my-json-server.typicode.com/casvil/recipes/db')
     .then(res => res.json())
@@ -16,8 +18,6 @@ export const fetchRecipes = () => dispatch => {
     )
     .catch(err => onError(err));
 };
-
-const onError = err => console.log(err);
 
 export const createRecipe = recipeData => dispatch => {
   fetch('https://my-json-server.typicode.com/casvil/recipes/recipes', {

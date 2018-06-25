@@ -8,25 +8,23 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <Switch>
-        <div className="app">
-          <div className="app__header">
-            <Route path="/" component={Components.Header} />
-          </div>
-          <div className="app__form-search">
-            <Route path="/" component={Components.Search} />
-          </div>
-          <div className="app__content">
-            <Route path="/register" component={Components.UserRegister} />
-            <Route path="/login" component={Components.Login} />
-            <Route path="/recipe" component={Components.RecipeForm} />
-            <Route path="/" component={Components.Recipes} />
-          </div>
-          <div className="app__footer">
-            <Route path="/" component={Components.Footer} />
-          </div>
+      <div className="app">
+        <div className="app__header">
+          <Route path="/" component={Components.Header} />
         </div>
-      </Switch>
+        <div className="app__form-search">
+          <Route path="/" component={Components.Search} />
+        </div>
+        <div className="app__content">
+          <Route path="/register" component={Components.UserRegister} />
+          <Route path="/login" component={Components.Login} />
+          <Route path="/recipe" component={Components.RecipeForm} />
+          <Route path="/" component={Components.Recipes} />
+        </div>
+        <div className="app__footer">
+          <Route path="/" component={Components.Footer} />
+        </div>
+      </div>
     );
   }
 }
