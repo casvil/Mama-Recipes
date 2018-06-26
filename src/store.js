@@ -8,15 +8,15 @@ import rootReducer from './reducers';
 const initialState = {};
 export const history = createBrowserHistory(); // history object provided to ConnectedRouter
 const middleware = [thunk, routerMiddleware(history)];
-console.log(process.env.NODE_ENV);
+
 export const store = createStore(
   connectRouter(history)(rootReducer),
   initialState,
-  process.env.NODE_ENV === 'development'
-    ? compose(
-        applyMiddleware(...middleware),
-        window.__REDUX_DEVTOOLS_EXTENSION__ &&
-          window.__REDUX_DEVTOOLS_EXTENSION__()
-      )
-    : compose(applyMiddleware(...middleware))
+  compose(
+    applyMiddleware(...middleware),
+    process.env.NODE_ENV === 'development'
+      ? window.__REDUX_DEVTOOLS_EXTENSION__ &&
+        window.__REDUX_DEVTOOLS_EXTENSION__()
+      : compose
+  )
 );
