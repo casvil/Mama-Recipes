@@ -10,7 +10,7 @@ export const history = createBrowserHistory(); // history object provided to Con
 const middleware = [thunk, routerMiddleware(history)];
 
 export const store = createStore(
-  connectRouter(history)(rootReducer), // new root reducer with router state
+  connectRouter(history)(rootReducer),
   initialState,
   process.env.NODE_ENV === 'development'
     ? compose(
@@ -18,5 +18,5 @@ export const store = createStore(
         window.__REDUX_DEVTOOLS_EXTENSION__ &&
           window.__REDUX_DEVTOOLS_EXTENSION__()
       )
-    : applyMiddleware(...middleware)
+    : compose(applyMiddleware(...middleware))
 );
