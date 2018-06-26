@@ -9,12 +9,12 @@ export const history = createBrowserHistory(); // history object provided to Con
 const initialState = {};
 const middleware = [thunk, routerMiddleware(history)];
 
-console.log('typeof PROCESS.ENV.NODE_ENV', typeof process.env.NODE_ENV);
 export const store = createStore(
   connectRouter(history)(rootReducer),
   initialState,
   compose(
     applyMiddleware(...middleware),
+    process.env.NODE_ENV == 'development' ||
     window.navigator.userAgent.includes('Chrome')
       ? window.__REDUX_DEVTOOLS_EXTENSION__ &&
         window.__REDUX_DEVTOOLS_EXTENSION__()
