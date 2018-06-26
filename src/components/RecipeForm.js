@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { reduxForm, Field } from 'redux-form';
 import PropTypes from 'prop-types';
 
 import '../css/typography.css';
@@ -9,20 +10,7 @@ import { createRecipe } from '../actions/recipeActions';
 class RecipeForm extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      name: '',
-      ingredients: [],
-      steps: [],
-      img: '',
-      video: '',
-      difficulty: ''
-    };
   }
-
-  onChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
 
   onSubmit = e => {
     e.preventDefault();
@@ -33,96 +21,83 @@ class RecipeForm extends Component {
      *  Check that img and video URLs are valid
      **/
 
-    const recipe = {
-      id: this.state.id,
-      name: this.state.name,
-      ingredients: this.state.ingredients.includes(',')
-        ? this.state.ingredients.split(',')
-        : [''],
-      steps: this.state.steps.includes(',')
-        ? this.state.steps.split(',')
-        : [''],
-      img: this.state.img,
-      video: this.state.video,
-      difficulty: this.state.difficulty
-    };
-
-    this.props.createRecipe(recipe, this.props.user.authToken);
+    this.props.createRecipe(
+      this.props.form.recipe.values,
+      this.props.user.authToken
+    );
   };
 
   render() {
     return (
       <div>
         <h1 className="h1-title">Add Recipe</h1>
-        <form className="form" onSubmit={this.onSubmit}>
+        <form className="form">
           <div className="form__input">
             <label className="form__label">Name</label>
-            <input
-              className="form__textInput"
+            <Field
               type="text"
-              name="name"
+              component="input"
+              className="form__textInput"
               placeholder="Name"
-              onChange={this.onChange}
-              value={this.state.name}
+              name="name"
             />
           </div>
           <div className="form__input">
             <label className="form__label">Ingredients</label>
-            <input
-              className="form__textInput"
+            <Field
               type="text"
-              name="ingredients"
+              component="input"
+              className="form__textInput"
               placeholder="Ingredient 1, Ingredient 2, ..."
-              onChange={this.onChange}
-              value={this.state.ingredients}
+              name="ingredients"
             />
           </div>
           <div className="form__input">
             <label className="form__label">Steps</label>
-            <input
+            <Field
               className="form__textInput"
+              component="input"
               type="text"
               name="steps"
               placeholder="Step 1, Step 2, ..."
-              onChange={this.onChange}
-              value={this.state.steps}
             />
           </div>
           <div className="form__input">
             <label className="form__label">Img URL</label>
-            <input
+            <Field
               className="form__textInput"
+              component="input"
               type="text"
               name="img"
               placeholder="Image URL"
-              onChange={this.onChange}
-              value={this.state.img}
             />
           </div>
           <div className="form__input">
             <label className="form__label">Video URL</label>
-            <input
+            <Field
               className="form__textInput"
+              component="input"
               type="text"
               name="video"
               placeholder="Video URL"
-              onChange={this.onChange}
-              value={this.state.video}
             />
           </div>
           <div className="form__input">
             <label className="form__label">Difficulty</label>
-            <input
+            <Field
               className="form__textInput"
+              component="input"
               type="text"
               name="difficulty"
               placeholder="Difficulty"
-              onChange={this.onChange}
-              value={this.state.difficulty}
             />
           </div>
           <div>
-            <button type="submit" className="form__submit">
+            <button
+              type="submit"
+              className="form__submit"
+              onClick={this.onSubmit}
+            >
               {'Submit'}
             </button>
           </div>
@@ -134,14 +109,20 @@ class RecipeForm extends Component {
 
 RecipeForm.propTypes = {
   createRecipe: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
+  form: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  form: state.form
 });
 
-export default connect(
-  mapStateToProps,
-  { createRecipe }
-)(RecipeForm);
+export default reduxForm({
+  form: 'recipe'
+})(
+  connect(
+    mapStateToProps,
+    { createRecipe }
+  )(RecipeForm)
+);
