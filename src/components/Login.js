@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import { signInInit, signIn } from '../actions/userActions';
+import { routerHome } from '../actions/routerActions';
 import PropTypes from 'prop-types';
 
 const validate = values => {
@@ -29,7 +30,9 @@ class Login extends Component {
     e.preventDefault();
 
     this.props.signInInit(this.props.form.login.values.email);
-    this.props.signIn(this.props.form.login.values);
+    this.props.signIn(this.props.form.login.values, () => {
+      this.props.routerHome();
+    });
   };
   render() {
     return (
@@ -56,7 +59,10 @@ class Login extends Component {
   }
 }
 
-Login.propTypes = { signIn: PropTypes.func.isRequired };
+Login.propTypes = {
+  signIn: PropTypes.func.isRequired,
+  routerHome: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => ({
   form: state.form
@@ -65,6 +71,6 @@ const mapStateToProps = state => ({
 export default reduxForm({ form: 'login', validate })(
   connect(
     mapStateToProps,
-    { signInInit, signIn }
+    { signInInit, signIn, routerHome }
   )(Login)
 );

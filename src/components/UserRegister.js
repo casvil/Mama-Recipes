@@ -4,12 +4,15 @@ import { reduxForm, Field } from 'redux-form';
 import PropTypes from 'prop-types';
 
 import { register } from '../actions/userActions';
+import { routerHome } from '../actions/routerActions';
 
 class UserRegister extends Component {
   handleClick = event => {
     event.preventDefault();
 
-    this.props.register(this.props.form.register.values);
+    this.props.register(this.props.form.register.values, () =>
+      this.props.routerHome()
+    );
   };
   render() {
     return (
@@ -35,6 +38,7 @@ class UserRegister extends Component {
 
 UserRegister.propTypes = {
   register: PropTypes.func.isRequired,
+  routerHome: PropTypes.func.isRequired,
   form: PropTypes.object.isRequired
 };
 
@@ -47,6 +51,6 @@ export default reduxForm({
 })(
   connect(
     mapStateToProps,
-    { register }
+    { register, routerHome }
   )(UserRegister)
 );

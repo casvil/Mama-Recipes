@@ -14,13 +14,14 @@ export const registerInit = () => dispatch => {
   });
 };
 
-export const signInInit = () => dispatch => {
+export const signInInit = email => dispatch => {
   dispatch({
-    type: USER_SIGN_IN_INIT
+    type: USER_SIGN_IN_INIT,
+    payload: email
   });
 };
 
-export const register = ({ email, password }) => dispatch => {
+export const register = ({ email, password }, redirect) => dispatch => {
   fetch('http://localhost:3090/signup', {
     method: 'POST',
     headers: {
@@ -30,26 +31,23 @@ export const register = ({ email, password }) => dispatch => {
   })
     .then(res => res.json())
     .then(res => {
-      if (res.isOK)
-        return dispatch({
+      if (res.isOK) {
+        dispatch({
           type: USER_REGISTER_COMPLETE,
           payload: res.authToken
         });
-      else
-        return dispatch({
-          type: USER_REGISTER_FAIL,
-          payload: res.err
-        });
+        redirect();
+      }
     })
     .catch(err => {
       dispatch({
-        type: ERROR_NETWORK,
+        type: USER_REGISTER_FAIL,
         payload: err
       });
     });
 };
 
-export const signIn = ({ email, password }) => dispatch => {
+export const signIn = ({ email, password }, redirect) => dispatch => {
   fetch('http://localhost:3090/signin', {
     method: 'POST',
     header: {
@@ -59,21 +57,17 @@ export const signIn = ({ email, password }) => dispatch => {
   })
     .then(res => res.json())
     .then(res => {
-      console.log(res);
-      if (res.isOK)
-        return dispatch({
+      if (res.isOK) {
+        dispatch({
           type: USER_SIGN_IN_COMPLETE,
           payload: res
         });
-      else console.log(res);
-      return dispatch({
-        type: USER_SIGN_IN_FAIL,
-        payload: res.err
-      });
+        redirect();
+      }
     })
     .catch(err => {
       dispatch({
-        type: ERROR_NETWORK,
+        type: USER_SIGN_IN_FAIL,
         payload: err
       });
     });

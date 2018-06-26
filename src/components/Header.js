@@ -14,7 +14,27 @@ import './header.css';
 
 class Header extends Component {
   render() {
-    return (
+    const { isRegistered, isLoggedIn } = this.props.user;
+
+    return isLoggedIn ? (
+      <header className="header">
+        <h1
+          className="header__title"
+          role="button"
+          onClick={this.props.routerHome}
+        >
+          <img src={logo} className="header__logo" alt="logo" />
+          Welcome to React{' '}
+          <span role="img" aria-label="pasta">
+            🍝
+          </span>{' '}
+          Recipes
+        </h1>
+        <div>
+          <span>logged in</span>
+        </div>
+      </header>
+    ) : (
       <header className="header">
         <h1
           className="header__title"
@@ -35,19 +55,32 @@ class Header extends Component {
         >
           NEW RECIPE
         </span>
-        <span
-          className="header__item"
-          role="button"
-          onClick={this.props.routerRegister}
-        >
-          Register
+        <span>
+          {isRegistered ? (
+            ''
+          ) : (
+            <span
+              className="header__item"
+              role="button"
+              onClick={this.props.routerRegister}
+            >
+              Register
+            </span>
+          )}
         </span>
-        <span
-          className="header__item"
-          role="button"
-          onClick={this.props.routerLogin}
-        >
-          Log In
+
+        <span>
+          {isLoggedIn ? (
+            ''
+          ) : (
+            <span
+              className="header__item"
+              role="button"
+              onClick={this.props.routerLogin}
+            >
+              Login
+            </span>
+          )}
         </span>
       </header>
     );
@@ -55,13 +88,18 @@ class Header extends Component {
 }
 
 Header.propTypes = {
+  user: PropTypes.object.isRequired,
   routerNewRecipe: PropTypes.func.isRequired,
   routerHome: PropTypes.func.isRequired,
   routerLogin: PropTypes.func.isRequired,
   routerRegister: PropTypes.func.isRequired
 };
 
+const mapStateToProps = state => ({
+  user: state.user
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { routerHome, routerNewRecipe, routerLogin, routerRegister }
 )(Header);
