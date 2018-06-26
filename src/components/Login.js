@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
+import { connect } from 'react-redux';
+import { signInInit, signIn } from '../actions/userActions';
+import PropTypes from 'prop-types';
 
 const validate = values => {
   const errors = {};

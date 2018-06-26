@@ -14,16 +14,19 @@ export const registerInit = () => dispatch => {
   });
 };
 
-export const register = payload => dispatch => {
+export const signInInit = () => dispatch => {
+  dispatch({
+    type: USER_SIGN_IN_INIT
+  });
+};
+
+export const register = ({ email, password }) => dispatch => {
   fetch('http://localhost:3090/signup', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({
-      email: payload.email,
-      password: payload.password
-    })
+    body: JSON.stringify({ email, password })
   })
     .then(res => res.json())
     .then(res => {
@@ -37,6 +40,36 @@ export const register = payload => dispatch => {
           type: USER_REGISTER_FAIL,
           payload: res.err
         });
+    })
+    .catch(err => {
+      dispatch({
+        type: ERROR_NETWORK,
+        payload: err
+      });
+    });
+};
+
+export const signIn = ({ email, password }) => dispatch => {
+  fetch('http://localhost:3090/signin', {
+    method: 'POST',
+    header: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email, password })
+  })
+    .then(res => res.json())
+    .then(res => {
+      console.log(res);
+      if (res.isOK)
+        return dispatch({
+          type: USER_SIGN_IN_COMPLETE,
+          payload: res
+        });
+      else console.log(res);
+      return dispatch({
+        type: USER_SIGN_IN_FAIL,
+        payload: res.err
+      });
     })
     .catch(err => {
       dispatch({
