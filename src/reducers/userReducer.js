@@ -8,10 +8,9 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  isRegistering: false,
-  isRegistered: false,
   isLoggedIn: false,
-  isLoggingIn: false,
+  isRegistered: false,
+  isFetchingData: false,
   email: null,
   authToken: null,
   error: null
@@ -22,13 +21,13 @@ export default function(state = initialState, action) {
     case USER_REGISTER_INIT:
       return {
         ...state,
-        isRegistering: true
+        isFetchingData: true
       };
 
     case USER_REGISTER_COMPLETE:
       return {
         ...state,
-        isRegistering: false,
+        isFetchingData: false,
         isRegistered: true,
         authToken: action.payload
       };
@@ -37,29 +36,29 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isRegistered: false,
-        isRegistering: false,
+        isFetchingData: false,
         error: action.payload
       };
 
     case USER_LOG_IN_INIT:
       return {
         ...state,
-        isLoggingIn: true
+        isFetchingData: true
       };
 
     case USER_LOG_IN_COMPLETE:
       return {
         ...state,
-        isLoggingIn: false,
         isLoggedIn: true,
+        isFetchingData: false,
         email: action.payload.email
       };
 
     case USER_LOG_IN_FAIL:
       return {
         ...state,
-        isLoggingIn: false,
         isLoggedIn: false,
+        isFetchingData: false,
         error: action.payload
       };
 
