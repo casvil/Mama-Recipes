@@ -24,20 +24,47 @@ const renderInput = ({ input, meta, label }) => {
   );
 };
 
-// let Login = ({ handleSubmit, submitting }) => {
-let Login = () => {
-  return (
-    // <form onSubmit={handleSubmit()}>
-    <form>
-      Login
-      <Field name="email" label="Email" component={renderInput} />
-      <Field name="password" label="Password" component={renderInput} />
-      <button type="submit">Submit</button>
-      {/* <button type="submit" disabled={submitting}> */}
-    </form>
-  );
-};
+class Login extends Component {
+  handleSubmit = e => {
+    e.preventDefault();
 
-export default reduxForm({ form: 'login', destroyOnUnmount: false, validate })(
-  Login
+    this.props.signInInit(this.props.form.login.values.email);
+    this.props.signIn(this.props.form.login.values);
+  };
+  render() {
+    return (
+      <form>
+        Login
+        <Field
+          name="email"
+          type="email"
+          label="Email"
+          component={renderInput}
+        />
+        <Field
+          name="password"
+          type="password"
+          label="Password"
+          component={renderInput}
+        />
+        <button type="submit" onClick={this.handleSubmit}>
+          Submit
+        </button>
+        {/* <button type="submit" disabled={submitting}> */}
+      </form>
+    );
+  }
+}
+
+Login.propTypes = { signIn: PropTypes.func.isRequired };
+
+const mapStateToProps = state => ({
+  form: state.form
+});
+
+export default reduxForm({ form: 'login', validate })(
+  connect(
+    mapStateToProps,
+    { signInInit, signIn }
+  )(Login)
 );
