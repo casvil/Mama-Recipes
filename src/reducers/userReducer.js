@@ -2,9 +2,9 @@ import {
   USER_REGISTER_INIT,
   USER_REGISTER_COMPLETE,
   USER_REGISTER_FAIL,
-  USER_LOG_IN_INIT,
-  USER_LOG_IN_COMPLETE,
-  USER_LOG_IN_FAIL,
+  USER_SIGN_IN_INIT,
+  USER_SIGN_IN_COMPLETE,
+  USER_SIGN_IN_FAIL,
   ERROR_NETWORK
 } from '../actions/types';
 
@@ -41,21 +41,22 @@ export default function(state = initialState, action) {
         error: action.payload
       };
 
-    case USER_LOG_IN_INIT:
+    case USER_SIGN_IN_INIT:
       return {
         ...state,
+        email: action.payload,
         isFetchingData: true
       };
 
-    case USER_LOG_IN_COMPLETE:
+    case USER_SIGN_IN_COMPLETE:
       return {
         ...state,
         isLoggedIn: true,
         isFetchingData: false,
-        email: action.payload.email
+        authToken: action.payload.authToken
       };
 
-    case USER_LOG_IN_FAIL:
+    case USER_SIGN_IN_FAIL:
       return {
         ...state,
         isLoggedIn: false,
