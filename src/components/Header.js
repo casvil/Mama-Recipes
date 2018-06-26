@@ -31,7 +31,13 @@ class Header extends Component {
           Recipes
         </h1>
         <div>
-          <span>logged in</span>
+          <span
+            className="header__item"
+            role="button"
+            onClick={this.props.routerNewRecipe}
+          >
+            NEW RECIPE
+          </span>
         </div>
       </header>
     ) : (
@@ -48,13 +54,6 @@ class Header extends Component {
           </span>{' '}
           Recipes
         </h1>
-        <span
-          className="header__item"
-          role="button"
-          onClick={this.props.routerNewRecipe}
-        >
-          NEW RECIPE
-        </span>
         <span>
           {isRegistered ? (
             ''
