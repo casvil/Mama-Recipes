@@ -8,10 +8,6 @@ import './recipeForm.css';
 import { createRecipe } from '../actions/recipeActions';
 
 class RecipeForm extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   onSubmit = e => {
     e.preventDefault();
 
