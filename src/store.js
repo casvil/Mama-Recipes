@@ -8,7 +8,7 @@ import rootReducer from './reducers';
 const initialState = {};
 export const history = createBrowserHistory(); // history object provided to ConnectedRouter
 const middleware = [thunk, routerMiddleware(history)];
-
+console.log(process.env.NODE_ENV);
 export const store = createStore(
   connectRouter(history)(rootReducer),
   initialState,
