@@ -8,8 +8,6 @@ import {
   ERROR_NETWORK
 } from './types';
 
-const onError = err => dispatch => {};
-
 export const registerInit = () => dispatch => {
   dispatch({
     type: USER_REGISTER_INIT
@@ -27,17 +25,17 @@ export const register = payload => dispatch => {
       password: payload.password
     })
   })
-    .then(response => response.json())
-    .then(response => {
-      if (response.isOK)
+    .then(res => res.json())
+    .then(res => {
+      if (res.isOK)
         return dispatch({
           type: USER_REGISTER_COMPLETE,
-          payload: response.authToken
+          payload: res.authToken
         });
       else
         return dispatch({
           type: USER_REGISTER_FAIL,
-          payload: response.err
+          payload: res.err
         });
     })
     .catch(err => {

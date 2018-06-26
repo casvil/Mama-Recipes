@@ -1,21 +1,40 @@
 import {
-  FETCH_RECIPES,
+  FETCH_RECIPES_INIT,
+  FETCH_RECIPES_COMPLETE,
+  FETCH_RECIPES_FAIL,
   NEW_RECIPE,
   SEARCH_RECIPE,
   RESET_SEARCH,
   ERROR_NETWORK
 } from './types';
 
+export const fetchRecipesInit = () => dispatch => {
+  dispatch({
+    type: FETCH_RECIPES_INIT
+  });
+};
+
 export const fetchRecipes = () => dispatch => {
-  fetch('https://my-json-server.typicode.com/casvil/recipes/db')
+  fetch('http://localhost:3090/recipe')
     .then(res => res.json())
-    .then(recipes =>
+    .then(res => {
+      if (res.isOK)
+        return dispatch({
+          type: FETCH_RECIPES_COMPLETE,
+          payload: res.items
+        });
+      else
+        return dispatch({
+          type: FETCH_RECIPES_FAIL,
+          payload: res.err
+        });
+    })
+    .catch(err =>
       dispatch({
-        type: FETCH_RECIPES,
-        payload: recipes
+        type: ERROR_NETWORK,
+        payload: err
       })
-    )
-    .catch(err => onError(err));
+    );
 };
 
 export const createRecipe = (recipeData, authToken) => dispatch => {
@@ -28,7 +47,7 @@ export const createRecipe = (recipeData, authToken) => dispatch => {
     body: JSON.stringify(recipeData)
   })
     .then(res => res.json())
-    .then(recipe =>
+    .then(res =>
       dispatch({
         type: NEW_RECIPE,
         payload: recipeData
