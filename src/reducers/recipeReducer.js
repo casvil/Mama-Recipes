@@ -1,22 +1,38 @@
 import {
-  FETCH_RECIPES,
+  FETCH_RECIPES_INIT,
+  FETCH_RECIPES_COMPLETE,
+  FETCH_RECIPES_FAIL,
   NEW_RECIPE,
   SEARCH_RECIPE,
-  RESET_SEARCH
+  RESET_SEARCH,
+  ERROR_NETWORK
 } from '../actions/types';
 
 const initialState = {
-  items: {},
+  isFetchingData: false,
+  items: [],
   item: {},
-  suggestions: []
+  suggestions: [],
+  error: false
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case FETCH_RECIPES:
+    case FETCH_RECIPES_INIT:
+      return {
+        ...state,
+        isFetchingData: true
+      };
+    case FETCH_RECIPES_COMPLETE:
       return {
         ...state,
         items: action.payload
+      };
+    case FETCH_RECIPES_FAIL:
+      return {
+        ...state,
+        isFetchingData: false,
+        error: action.payload
       };
 
     case NEW_RECIPE:
@@ -39,6 +55,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         suggestions: []
+      };
+
+    case ERROR_NETWORK:
+      return {
+        ...state,
+        error: action.payload
       };
 
     default:

@@ -4,7 +4,8 @@ import {
   USER_REGISTER_FAIL,
   USER_LOG_IN_INIT,
   USER_LOG_IN_COMPLETE,
-  USER_LOG_IN_FAIL
+  USER_LOG_IN_FAIL,
+  ERROR_NETWORK
 } from '../actions/types';
 
 const initialState = {
@@ -59,6 +60,12 @@ export default function(state = initialState, action) {
         ...state,
         isLoggedIn: false,
         isFetchingData: false,
+        error: action.payload
+      };
+
+    case ERROR_NETWORK:
+      return {
+        ...state,
         error: action.payload
       };
 
