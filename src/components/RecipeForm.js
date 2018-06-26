@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import PropTypes from 'prop-types';
 
+import requireAuth from './requireAuth';
+import { createRecipe } from '../actions/recipeActions';
+
 import '../css/typography.css';
 import './recipeForm.css';
-import { createRecipe } from '../actions/recipeActions';
 
 class RecipeForm extends Component {
   onSubmit = e => {
@@ -120,5 +122,5 @@ export default reduxForm({
   connect(
     mapStateToProps,
     { createRecipe }
-  )(RecipeForm)
+  )(requireAuth(RecipeForm))
 );
