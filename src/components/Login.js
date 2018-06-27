@@ -15,11 +15,11 @@ const validate = values => {
 
 // the following function deconstructs the received params and renders
 // an input with props and if some parameters are true displays an span
-const renderInput = ({ input, meta, label }) => {
+const renderInput = ({ input, meta, label, type }) => {
   return (
     <div>
       <label>{label}</label>
-      <input {...input} />
+      <input type={type} {...input} />
       {meta.error && meta.touched && <span>{meta.error}</span>}
     </div>
   );
