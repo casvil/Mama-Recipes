@@ -4,7 +4,8 @@ import {
   USER_REGISTER_FAIL,
   USER_SIGN_IN_INIT,
   USER_SIGN_IN_COMPLETE,
-  USER_SIGN_IN_FAIL
+  USER_SIGN_IN_FAIL,
+  USER_SIGN_OUT
 } from './types';
 
 export const registerInit = () => dispatch => {

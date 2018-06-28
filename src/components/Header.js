@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {
   routerNewRecipe,
   routerHome,
-  routerLogin,
+  routerSignIn,
   routerRegister
 } from '../actions/routerActions';
 
@@ -75,7 +75,7 @@ class Header extends Component {
             <span
               className="header__item"
               role="button"
-              onClick={this.props.routerLogin}
+              onClick={this.props.routerSignIn}
             >
               Login
             </span>
@@ -90,7 +90,7 @@ Header.propTypes = {
   user: PropTypes.object.isRequired,
   routerNewRecipe: PropTypes.func.isRequired,
   routerHome: PropTypes.func.isRequired,
-  routerLogin: PropTypes.func.isRequired,
+  routerSignIn: PropTypes.func.isRequired,
   routerRegister: PropTypes.func.isRequired
 };
 
@@ -100,5 +100,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { routerHome, routerNewRecipe, routerLogin, routerRegister }
+  { routerHome, routerNewRecipe, routerSignIn, routerRegister }
 )(Header);

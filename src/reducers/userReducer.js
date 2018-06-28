@@ -5,6 +5,7 @@ import {
   USER_SIGN_IN_INIT,
   USER_SIGN_IN_COMPLETE,
   USER_SIGN_IN_FAIL,
+  USER_SIGN_OUT,
   ERROR_NETWORK
 } from '../actions/types';
 

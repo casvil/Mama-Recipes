@@ -11,5 +11,6 @@ export const USER_REGISTER_FAIL     = 'USER_REGISTER_FAIL';
 export const USER_SIGN_IN_INIT      = 'USER_SIGN_IN_INIT';
 export const USER_SIGN_IN_COMPLETE  = 'USER_SIGN_IN_COMPLETE';
 export const USER_SIGN_IN_FAIL      = 'USER_SIGN_IN_FAIL';
+export const USER_SIGN_OUT          = 'USER_SIGN_OUT';
 
 export const ERROR_NETWORK          = 'ERROR_NETWORK';
