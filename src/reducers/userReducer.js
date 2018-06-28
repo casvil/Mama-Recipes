@@ -53,7 +53,7 @@ export default function(state = initialState, action) {
         ...state,
         isLoggedIn: true,
         isFetchingData: false,
-        authToken: action.payload.authToken
+        authToken: action.payload
       };
 
     case USER_SIGN_IN_FAIL:

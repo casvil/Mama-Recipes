@@ -59,8 +59,11 @@ export const signIn = ({ email, password }, redirect) => dispatch => {
       if (res.isOK) {
         dispatch({
           type: USER_SIGN_IN_COMPLETE,
-          payload: res
+          payload: res.authToken
         });
+
+        localStorage.setItem('token', res.authToken);
+
         redirect();
       }
     })
