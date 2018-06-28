@@ -6,7 +6,9 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 
 export const history = createBrowserHistory(); // history object provided to ConnectedRouter
-const initialState = {};
+const initialState = {
+  user: { authToken: localStorage.getItem('token') }
+};
 const middleware = [thunk, routerMiddleware(history)];
 
 export const store = createStore(
