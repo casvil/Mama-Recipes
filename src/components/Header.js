@@ -8,6 +8,7 @@ import {
   routerSignIn,
   routerRegister
 } from '../actions/routerActions';
+import { signOut } from '../actions/userActions';
 
 import logo from './logo.svg';
 import './header.css';
@@ -37,6 +38,15 @@ class Header extends Component {
             onClick={this.props.routerNewRecipe}
           >
             NEW RECIPE
+          </span>
+        </div>
+        <div>
+          <span
+            className="header__item"
+            role="button"
+            onClick={this.props.signOut}
+          >
+            Sign Out
           </span>
         </div>
       </header>
@@ -91,7 +101,8 @@ Header.propTypes = {
   routerNewRecipe: PropTypes.func.isRequired,
   routerHome: PropTypes.func.isRequired,
   routerSignIn: PropTypes.func.isRequired,
-  routerRegister: PropTypes.func.isRequired
+  routerRegister: PropTypes.func.isRequired,
+  signOut: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -100,5 +111,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { routerHome, routerNewRecipe, routerSignIn, routerRegister }
+  { routerHome, routerNewRecipe, routerSignIn, routerRegister, signOut }
 )(Header);

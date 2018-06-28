@@ -77,7 +77,7 @@ export const signIn = ({ email, password }, redirect) => dispatch => {
 };
 
 export const signOut = () => dispatch => {
-  localStorage.clearItem('authToken');
+  localStorage.removeItem('authToken');
 
   dispatch({
     type: USER_SIGN_OUT
