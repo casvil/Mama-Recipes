@@ -63,7 +63,7 @@ export const signIn = ({ email, password }, redirect) => dispatch => {
           payload: res.authToken
         });
 
-        localStorage.setItem('token', res.authToken);
+        localStorage.setItem('authToken', res.authToken);
 
         redirect();
       }
@@ -74,4 +74,12 @@ export const signIn = ({ email, password }, redirect) => dispatch => {
         payload: err
       });
     });
+};
+
+export const signOut = () => dispatch => {
+  localStorage.clearItem('authToken');
+
+  dispatch({
+    type: USER_SIGN_OUT
+  });
 };

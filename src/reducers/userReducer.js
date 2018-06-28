@@ -65,6 +65,13 @@ export default function(state = initialState, action) {
         error: action.payload
       };
 
+    case USER_SIGN_OUT:
+      return {
+        ...state,
+        isLoggedIn: false,
+        authToken: ''
+      };
+
     case ERROR_NETWORK:
       return {
         ...state,
