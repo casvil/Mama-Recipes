@@ -21,7 +21,7 @@ export default ChildComponent => {
     }
   }
   function mapStateToProps(state) {
-    return { authToken: state.user.authToken };
+    return { authToken: state.auth.authToken };
   }
   return connect(mapStateToProps)(ComposedComponent);
 };

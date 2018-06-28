@@ -25,7 +25,7 @@ const renderInput = ({ input, meta, label, type }) => {
   );
 };
 
-class Login extends Component {
+class Signin extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
@@ -37,7 +37,7 @@ class Login extends Component {
   render() {
     return (
       <form>
-        Login
+        Signin
         <Field
           name="email"
           type="email"
@@ -59,7 +59,7 @@ class Login extends Component {
   }
 }
 
-Login.propTypes = {
+Signin.propTypes = {
   signIn: PropTypes.func.isRequired,
   routerHome: PropTypes.func.isRequired
 };
@@ -72,5 +72,5 @@ export default reduxForm({ form: 'login', validate })(
   connect(
     mapStateToProps,
     { signInInit, signIn, routerHome }
-  )(Login)
+  )(Signin)
 );

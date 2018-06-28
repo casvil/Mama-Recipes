@@ -4,7 +4,7 @@ import { reduxForm, Field } from 'redux-form';
 import PropTypes from 'prop-types';
 
 import { register } from '../actions/userActions';
-import { routerHome } from '../actions/routerActions';
+import { routerHome } from '../../actions/routerActions';
 
 class UserRegister extends Component {
   handleClick = event => {
