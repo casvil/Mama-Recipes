@@ -16,7 +16,7 @@ class Header extends Component {
   }
 
   renderLinks() {
-    if (this.props.isLoggedIn) {
+    if (this.props.auth.isLoggedIn) {
       return (
         <header>
           <Link to="/">
