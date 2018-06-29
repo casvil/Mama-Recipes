@@ -1,23 +1,45 @@
 import {
-  USER_REGISTER_INIT,
-  USER_REGISTER_COMPLETE,
-  USER_REGISTER_FAIL,
-  USER_SIGN_IN_INIT,
-  USER_SIGN_IN_COMPLETE,
-  USER_SIGN_IN_FAIL,
-  USER_SIGN_OUT,
-  ERROR_NETWORK
+  AUTH_USER_REQUEST,
+  AUTH_USER_SUCCESS,
+  AUTH_USER_FAILURE,
+  USER_SIGN_OUT
 } from '../actions/types';
 
 const initialState = {
-  isLoggedIn: false,
-  isRegistered: false,
-  isFetchingData: false,
-  email: null,
-  authToken: null,
-  error: null
+  email: '',
+  username: '',
+  isFetchingData: false
 };
 
 export default function(state = initialState, action) {
-  return state;
+  switch (action.type) {
+    case AUTH_USER_REQUEST:
+      return {
+        ...state,
+        isFetchingData: true
+      };
+
+    case AUTH_USER_SUCCESS:
+      return {
+        ...state,
+        email: action.payload,
+        isFetchingData: false
+      };
+
+    case AUTH_USER_FAILURE:
+      return {
+        ...state,
+        isFetchingData: false,
+        error: action.payload
+      };
+
+    case USER_SIGN_OUT:
+      return {
+        ...state,
+        email: '',
+        authenticated: ''
+      };
+    default:
+      return state;
+  }
 }

@@ -1,5 +1,5 @@
 import {
-  FETCH_RECIPES_INIT,
+  FETCH_RECIPES_REQUEST,
   FETCH_RECIPES_COMPLETE,
   FETCH_RECIPES_FAIL,
   NEW_RECIPE,
@@ -18,7 +18,7 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case FETCH_RECIPES_INIT:
+    case FETCH_RECIPES_REQUEST:
       return {
         ...state,
         isFetchingData: true
