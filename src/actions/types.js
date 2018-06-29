@@ -5,6 +5,8 @@ export const NEW_RECIPE             = 'NEW_RECIPE';
 export const SEARCH_RECIPE          = 'SEARCH_RECIPE';
 export const RESET_SEARCH           = 'RESET_SEARCH';
 
+export const AUTH_USER              = 'AUTH_USER';
+
 export const USER_REGISTER_INIT     = 'USER_REGISTER_INIT';
 export const USER_REGISTER_COMPLETE = 'USER_REGISTER_COMPLETE';
 export const USER_REGISTER_FAIL     = 'USER_REGISTER_FAIL';
