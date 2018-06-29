@@ -37,12 +37,12 @@ export const fetchRecipes = () => dispatch => {
     );
 };
 
-export const createRecipe = (recipeData, authToken) => dispatch => {
+export const createRecipe = (recipeData, authenticated) => dispatch => {
   fetch('http://localhost:3090/recipe', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      authorization: authToken
+      authorization: authenticated
     },
     body: JSON.stringify(recipeData)
   })
