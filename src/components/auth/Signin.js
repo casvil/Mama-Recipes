@@ -29,8 +29,8 @@ class Signin extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    this.props.signInInit(this.props.form.login.values.email);
-    this.props.signIn(this.props.form.login.values, () => {
+    this.props.signInInit(this.props.form.signIn.values.email);
+    this.props.signIn(this.props.form.signIn.values, () => {
       this.props.routerHome();
     });
   };
@@ -68,7 +68,7 @@ const mapStateToProps = state => ({
   form: state.form
 });
 
-export default reduxForm({ form: 'login', validate })(
+export default reduxForm({ form: 'signIn', validate })(
   connect(
     mapStateToProps,
     { signInInit, signIn, routerHome }

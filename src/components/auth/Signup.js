@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import PropTypes from 'prop-types';
 
-import { register } from '../../actions/userActions';
+import { signUp } from '../../actions/userActions';
 import { routerHome } from '../../actions/routerActions';
 
-class UserRegister extends Component {
+class SignUp extends Component {
   handleClick = event => {
     event.preventDefault();
 
-    this.props.register(this.props.form.register.values, () =>
+    this.props.signUp(this.props.form.signUp.values, () =>
       this.props.routerHome()
     );
   };
@@ -18,14 +18,19 @@ class UserRegister extends Component {
     return (
       <div>
         <form>
-          UserRegister
+          SignUp
           <div>
             <label>Email</label>
             <Field name="email" type="email" component="input" />
           </div>
           <div>
             <label>Password</label>
-            <Field name="password" type="password" component="input" />
+            <Field
+              name="password"
+              type="password"
+              autoComplete="none"
+              component="input"
+            />
             <button type="submit" onClick={this.handleClick}>
               Submit
             </button>
@@ -36,8 +41,8 @@ class UserRegister extends Component {
   }
 }
 
-UserRegister.propTypes = {
-  register: PropTypes.func.isRequired,
+SignUp.propTypes = {
+  signUp: PropTypes.func.isRequired,
   routerHome: PropTypes.func.isRequired,
   form: PropTypes.object.isRequired
 };
@@ -47,10 +52,10 @@ const mapStateToProps = state => ({
 });
 
 export default reduxForm({
-  form: 'register'
+  form: 'signUp'
 })(
   connect(
     mapStateToProps,
-    { register, routerHome }
-  )(UserRegister)
+    { signUp, routerHome }
+  )(SignUp)
 );

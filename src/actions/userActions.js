@@ -8,7 +8,7 @@ import {
   USER_SIGN_OUT
 } from './types';
 
-export const registerInit = () => dispatch => {
+export const signUpInit = () => dispatch => {
   dispatch({
     type: USER_REGISTER_INIT
   });
@@ -21,7 +21,7 @@ export const signInInit = email => dispatch => {
   });
 };
 
-export const register = ({ email, password }, redirect) => dispatch => {
+export const signUp = ({ email, password }, redirect) => dispatch => {
   fetch('http://localhost:3090/signup', {
     method: 'POST',
     headers: {
