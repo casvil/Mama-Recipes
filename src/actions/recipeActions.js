@@ -1,5 +1,5 @@
 import {
-  FETCH_RECIPES_INIT,
+  FETCH_RECIPES_REQUEST,
   FETCH_RECIPES_COMPLETE,
   FETCH_RECIPES_FAIL,
   NEW_RECIPE,
@@ -10,7 +10,7 @@ import {
 
 export const fetchRecipesInit = () => dispatch => {
   dispatch({
-    type: FETCH_RECIPES_INIT
+    type: FETCH_RECIPES_REQUEST
   });
 };
 
