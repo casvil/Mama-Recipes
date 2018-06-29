@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import PropTypes from 'prop-types';
 
-import requireAuth from './requireAuth';
+import requireAuth from './auth/requireAuth';
 import { createRecipe } from '../actions/recipeActions';
 
 import '../css/typography.css';
