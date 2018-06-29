@@ -5,16 +5,9 @@ import PropTypes from 'prop-types';
 
 import { signOut } from '../actions/userActions';
 
-import logo from './logo.svg';
 import './header.css';
 
 class Header extends Component {
-  componentWillMount() {
-    console.log(this.props);
-    // const { isRegistered, isLoggedIn } = this.props.auth;
-    // console.log('ISREGISTERED, ISLOGGEDIN', isRegistered, isLoggedIn);
-  }
-
   renderLinks() {
     if (this.props.auth.isLoggedIn) {
       return (
