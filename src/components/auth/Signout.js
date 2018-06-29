@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { authRequest } from '../../actions/authActions';
+
+import requireAuth from './requireAuth';
 
 class Signout extends Component {
   render() {
@@ -8,7 +8,4 @@ class Signout extends Component {
   }
 }
 
-export default connect(
-  null,
-  { authRequest }
-)(Signout);
+export default requireAuth(Signout);
