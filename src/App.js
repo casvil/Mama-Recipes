@@ -16,8 +16,9 @@ class App extends Component {
           <Route path="/" component={Components.Search} />
         </div>
         <div className="app__content">
-          <Route path="/register" component={Components.UserRegister} />
-          <Route path="/login" component={Components.Login} />
+          <Route path="/signup" component={Components.Signup} />
+          <Route path="/signin" component={Components.Signin} />
+          <Route path="/signout" component={Components.Signout} />
           <Route path="/recipe" component={Components.RecipeForm} />
           <Route path="/" component={Components.Recipes} />
         </div>

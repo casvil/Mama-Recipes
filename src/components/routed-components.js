@@ -3,8 +3,9 @@ import Footer from './Footer';
 import Recipes from './Recipes';
 import RecipeForm from './RecipeForm';
 import Search from './Search';
-import UserRegister from './UserRegister';
-import Login from './Login';
+import Signup from './auth/Signup';
+import Signin from './auth/Signin';
+import Signout from './auth/Signout';
 
 const Components = {
   Header,
@@ -12,8 +13,9 @@ const Components = {
   Recipes,
   RecipeForm,
   Search,
-  UserRegister,
-  Login
+  Signup,
+  Signin,
+  Signout
 };
 
 export default Components;
