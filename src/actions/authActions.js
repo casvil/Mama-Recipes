@@ -30,7 +30,7 @@ export const signUp = ({ email, password }, redirect) => dispatch => {
         redirect();
       }
     })
-    .catch(err => {
+    .then(err => {
       dispatch({
         type: AUTH_USER_FAILURE,
         payload: err
@@ -59,7 +59,7 @@ export const signIn = ({ email, password }, redirect) => dispatch => {
         redirect();
       }
     })
-    .catch(err => {
+    .then(err => {
       dispatch({
         type: AUTH_USER_FAILURE,
         payload: err
