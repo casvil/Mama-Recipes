@@ -21,7 +21,7 @@ class RecipeForm extends Component {
 
     this.props.createRecipe(
       this.props.form.recipe.values,
-      this.props.auth.authToken
+      this.props.auth.authenticated
     );
   };
 

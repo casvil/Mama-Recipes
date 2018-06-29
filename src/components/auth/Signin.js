@@ -48,12 +48,12 @@ class Signin extends Component {
           name="password"
           type="password"
           label="Password"
+          autoComplete="none"
           component={renderInput}
         />
         <button type="submit" onClick={this.handleSubmit}>
           Submit
         </button>
-        {/* <button type="submit" disabled={submitting}> */}
       </form>
     );
   }

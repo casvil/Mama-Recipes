@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { signOut } from '../actions/userActions';
+import { signOut } from '../actions/authActions';
 
 import './header.css';
 
 class Header extends Component {
   renderLinks() {
-    if (this.props.auth.isLoggedIn) {
+    if (this.props.auth.authenticated) {
       return (
         <header>
           <Link to="/">
