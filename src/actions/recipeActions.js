@@ -29,12 +29,13 @@ export const fetchRecipes = () => dispatch => {
           payload: res.err
         });
     })
-    .catch(err =>
-      dispatch({
-        type: ERROR_NETWORK,
-        payload: err
-      })
-    );
+    .catch(err => {
+      if (err)
+        dispatch({
+          type: ERROR_NETWORK,
+          payload: err
+        });
+    });
 };
 
 export const createRecipe = (recipeData, authenticated) => dispatch => {

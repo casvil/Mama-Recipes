@@ -30,11 +30,12 @@ export const signUp = ({ email, password }, redirect) => dispatch => {
         redirect();
       }
     })
-    .then(err => {
-      dispatch({
-        type: AUTH_USER_FAILURE,
-        payload: err
-      });
+    .catch(err => {
+      if (err)
+        dispatch({
+          type: AUTH_USER_FAILURE,
+          payload: err
+        });
     });
 };
 
@@ -59,11 +60,12 @@ export const signIn = ({ email, password }, redirect) => dispatch => {
         redirect();
       }
     })
-    .then(err => {
-      dispatch({
-        type: AUTH_USER_FAILURE,
-        payload: err
-      });
+    .catch(err => {
+      if (err)
+        dispatch({
+          type: AUTH_USER_FAILURE,
+          payload: err
+        });
     });
 };
 
