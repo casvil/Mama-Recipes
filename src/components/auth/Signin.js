@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
-import { signInInit, signIn } from '../../actions/userActions';
+import { authRequest, signIn } from '../../actions/authActions';
 import { routerHome } from '../../actions/routerActions';
 import PropTypes from 'prop-types';
 
@@ -29,7 +29,7 @@ class Signin extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    this.props.signInInit(this.props.form.signIn.values.email);
+    this.props.authRequest(this.props.form.signIn.values.email);
     this.props.signIn(this.props.form.signIn.values, () => {
       this.props.routerHome();
     });
@@ -71,6 +71,6 @@ const mapStateToProps = state => ({
 export default reduxForm({ form: 'signIn', validate })(
   connect(
     mapStateToProps,
-    { signInInit, signIn, routerHome }
+    { authRequest, signIn, routerHome }
   )(Signin)
 );

@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import PropTypes from 'prop-types';
 
-import { signUp } from '../../actions/userActions';
+import { authRequest, signUp } from '../../actions/authActions';
 import { routerHome } from '../../actions/routerActions';
 
 class SignUp extends Component {
   handleClick = event => {
     event.preventDefault();
 
+    this.props.authRequest(this.props.form.signUp.values.email);
     this.props.signUp(this.props.form.signUp.values, () =>
       this.props.routerHome()
     );
@@ -56,6 +57,6 @@ export default reduxForm({
 })(
   connect(
     mapStateToProps,
-    { signUp, routerHome }
+    { authRequest, signUp, routerHome }
   )(SignUp)
 );
