@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
-import { authRequest, signIn } from '../../actions/authActions';
-import { routerHome } from '../../actions/routerActions';
 import PropTypes from 'prop-types';
 
-const validate = values => {
-  const errors = {};
-
-  if (!values.email) errors.email = 'Required';
-  if (!values.password) errors.password = 'Required';
-  return errors;
-};
+import { authRequest, signIn } from '../../actions/authActions';
+import { routerHome } from '../../actions/routerActions';
+import validate from '../../helpers/validate';
 
 // the following function deconstructs the received params and renders
 // an input with props and if some parameters are true displays an span

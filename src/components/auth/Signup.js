@@ -5,6 +5,17 @@ import PropTypes from 'prop-types';
 
 import { authRequest, signUp } from '../../actions/authActions';
 import { routerHome } from '../../actions/routerActions';
+import validate from '../../helpers/validate';
+
+const renderInput = ({ input, meta, label, type }) => {
+  return (
+    <div>
+      <label>{label}</label>
+      <input type={type} {...input} />
+      {meta.error && meta.touched && <span>{meta.error}</span>}
+    </div>
+  );
+};
 
 class SignUp extends Component {
   handleClick = event => {
@@ -22,7 +33,7 @@ class SignUp extends Component {
           SignUp
           <div>
             <label>Email</label>
-            <Field name="email" type="email" component="input" />
+            <Field name="email" type="email" component={renderInput} />
           </div>
           <div>
             <label>Password</label>
@@ -30,7 +41,7 @@ class SignUp extends Component {
               name="password"
               type="password"
               autoComplete="none"
-              component="input"
+              component={renderInput}
             />
             <button type="submit" onClick={this.handleClick}>
               Submit
@@ -53,7 +64,8 @@ const mapStateToProps = state => ({
 });
 
 export default reduxForm({
-  form: 'signUp'
+  form: 'signUp',
+  validate
 })(
   connect(
     mapStateToProps,

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import requireAuth from './requireAuth';
+import requireAuth from '../../helpers/requireAuth';
 
 class Signout extends Component {
   render() {
