@@ -21,7 +21,7 @@ class RecipeForm extends Component {
 
     this.props.createRecipe(
       this.props.form.recipe.values,
-      this.props.user.authToken
+      this.props.auth.authToken
     );
   };
 
@@ -107,12 +107,12 @@ class RecipeForm extends Component {
 
 RecipeForm.propTypes = {
   createRecipe: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
   form: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  user: state.user,
+  auth: state.auth,
   form: state.form
 });
 
