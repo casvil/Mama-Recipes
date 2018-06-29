@@ -15,7 +15,7 @@ export const fetchRecipesInit = () => dispatch => {
 };
 
 export const fetchRecipes = () => dispatch => {
-  fetch('http://localhost:3090/recipe')
+  fetch(`${process.env.REACT_APP_API_HOST}/recipe`)
     .then(res => res.json())
     .then(res => {
       if (res.isOK)
@@ -39,7 +39,7 @@ export const fetchRecipes = () => dispatch => {
 };
 
 export const createRecipe = (recipeData, authenticated) => dispatch => {
-  fetch('http://localhost:3090/recipe', {
+  fetch(`${process.env.REACT_APP_API_HOST}/recipe`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -13,7 +13,7 @@ export const authRequest = email => dispatch => {
 };
 
 export const signUp = ({ email, password }, redirect) => dispatch => {
-  fetch('http://localhost:3090/signup', {
+  fetch(`${process.env.REACT_APP_API_HOST}/signup`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -40,7 +40,7 @@ export const signUp = ({ email, password }, redirect) => dispatch => {
 };
 
 export const signIn = ({ email, password }, redirect) => dispatch => {
-  fetch('http://localhost:3090/signin', {
+  fetch(`${process.env.REACT_APP_API_HOST}/signin`, {
     method: 'POST',
     header: {
       'Content-Type': 'application/json'

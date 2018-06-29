@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "connected-react-router": "^4.3.0",
+    "dotenv": "^6.0.0",
     "history": "^4.7.2",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
