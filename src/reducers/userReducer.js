@@ -1,8 +1,7 @@
 import {
   AUTH_USER_REQUEST,
   AUTH_USER_SUCCESS,
-  AUTH_USER_FAILURE,
-  USER_SIGN_OUT
+  AUTH_USER_FAILURE
 } from '../actions/types';
 
 const initialState = {
@@ -33,12 +32,6 @@ export default function(state = initialState, action) {
         error: action.payload
       };
 
-    case USER_SIGN_OUT:
-      return {
-        ...state,
-        email: '',
-        authenticated: ''
-      };
     default:
       return state;
   }
