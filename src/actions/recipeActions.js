@@ -53,8 +53,10 @@ export const createRecipe = (recipeData, authenticated) => dispatch => {
         type: NEW_RECIPE,
         payload: recipeData
       })
-    );
-  // .catch(err => console.warn(err));
+    )
+    .catch(err => {
+      if (err) dispatch({ type: ERROR_NETWORK, payload: err });
+    });
 };
 
 export const searchRecipes = inputSearch => dispatch => {
