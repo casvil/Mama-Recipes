@@ -20,6 +20,7 @@ class App extends Component {
           <Route path="/signin" component={Components.Signin} />
           <Route path="/signout" component={Components.Signout} />
           <Route path="/recipe" component={Components.RecipeForm} />
+          <Route path="/recipe/:name" component={Components.Recipe} />
           <Route path="/" component={Components.Recipes} />
         </div>
         <div className="app__footer">
