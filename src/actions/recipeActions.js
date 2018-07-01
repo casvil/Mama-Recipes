@@ -8,7 +8,7 @@ import {
   ERROR_NETWORK
 } from './types';
 
-export const fetchRecipesInit = () => dispatch => {
+export const fetchRecipesRequest = () => dispatch => {
   dispatch({
     type: FETCH_RECIPES_REQUEST
   });

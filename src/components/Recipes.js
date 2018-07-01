@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 
 import '../css/typography.css';
 import './recipes.css';
-import { fetchRecipesInit, fetchRecipes } from '../actions/recipeActions';
+import { fetchRecipesRequest, fetchRecipes } from '../actions/recipeActions';
 
 class Recipes extends Component {
   componentWillMount() {
-    this.props.fetchRecipesInit();
+    this.props.fetchRecipesRequest();
     this.props.fetchRecipes();
   }
 
@@ -37,7 +37,7 @@ class Recipes extends Component {
 
 Recipes.propTypes = {
   fetchRecipes: PropTypes.func.isRequired,
-  fetchRecipesInit: PropTypes.func.isRequired,
+  fetchRecipesRequest: PropTypes.func.isRequired,
   recipes: PropTypes.array.isRequired,
   newRecipe: PropTypes.object
 };
@@ -50,5 +50,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { fetchRecipesInit, fetchRecipes }
+  { fetchRecipesRequest, fetchRecipes }
 )(Recipes);
