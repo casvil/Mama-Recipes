@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { fetchRecipesInit, fetchRecipes } from '../actions/recipeActions';
+import { Recipe } from './recipe/Recipe';
 import '../css/typography.css';
 import './recipes.css';
-import { fetchRecipesInit, fetchRecipes } from '../actions/recipeActions';
 
 class Recipes extends Component {
   componentWillMount() {

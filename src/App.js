@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router';
 
-import Components from './components/routed-components';
+import Components from './helpers/routed-components';
 
 import './App.css';
 
