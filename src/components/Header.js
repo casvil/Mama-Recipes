@@ -11,29 +11,33 @@ class Header extends Component {
   renderLinks() {
     if (this.props.auth.authenticated) {
       return (
-        <header>
-          <Link to="/">
-            <h1 className="header__title">Mama Recipes</h1>
+        <header className="header">
+          <Link to="/" className="header__title">
+            <h1>Mama Recipes</h1>
           </Link>
-          <Link to="/recipe">
-            <h1 className="header__item">New Recipe</h1>
+          <Link to="/recipe" className="header__item">
+            <h1>New Recipe</h1>
           </Link>
-          <Link to="/signout" onClick={this.props.signOut}>
-            <h1 className="header__item">Signout</h1>
+          <Link
+            className="header__item"
+            to="/signout"
+            onClick={this.props.signOut}
+          >
+            <h1>Signout</h1>
           </Link>
         </header>
       );
     } else {
       return (
-        <header>
-          <Link to="/">
-            <h1 className="header__title">Mama Recipes</h1>
+        <header className="header">
+          <Link to="/" className="header__title">
+            <h1>Mama Recipes</h1>
           </Link>
-          <Link to="/signup">
-            <h1 className="header__item">Sign Up</h1>
+          <Link to="/signup" className="header__item">
+            <h1>Sign Up</h1>
           </Link>
-          <Link to="/signin">
-            <h1 className="header__item">Sign In</h1>
+          <Link to="/signin" className="header__item">
+            <h1>Sign In</h1>
           </Link>
         </header>
       );

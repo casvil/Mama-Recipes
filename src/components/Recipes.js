@@ -14,8 +14,8 @@ class Recipes extends Component {
   }
 
   render() {
-    const recipeItems = Object.keys(this.props.recipes).map(recipe => (
-      <Recipe recipe={this.props.recipes[recipe]} />
+    const recipeItems = Object.keys(this.props.recipes).map((recipe, key) => (
+      <Recipe key={key} recipe={this.props.recipes[recipe]} />
     ));
 
     return (
