@@ -16,12 +16,13 @@ class App extends Component {
           <Route path="/" component={Components.Search} />
         </div>
         <div className="app__content">
+          <Route path="/" component={Components.Home} />
           <Route path="/signup" component={Components.Signup} />
           <Route path="/signin" component={Components.Signin} />
           <Route path="/signout" component={Components.Signout} />
+          <Route path="/" component={Components.RecipeList} />
           <Route path="/recipe" component={Components.RecipeForm} />
           <Route path="/recipe/:name" component={Components.Recipe} />
-          <Route path="/" component={Components.Recipes} />
         </div>
         <div className="app__footer">
           <Route path="/" component={Components.Footer} />

@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import PropTypes from 'prop-types';
 
-import requireAuth from '../helpers/requireAuth';
-import { createRecipe } from '../actions/recipeActions';
+import requireAuth from '../../helpers/requireAuth';
+import { createRecipe } from '../../actions/recipeActions';
 
-import '../css/typography.css';
+import '../../css/typography.css';
 import './recipeForm.css';
 
 class RecipeForm extends Component {

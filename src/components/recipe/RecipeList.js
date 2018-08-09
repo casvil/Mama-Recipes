@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Recipe from './recipe/Recipe';
-import { fetchRecipesRequest, fetchRecipes } from '../actions/recipeActions';
-import '../css/typography.css';
-import './recipes.css';
+import Recipe from './Recipe';
+import { fetchRecipesRequest, fetchRecipes } from '../../actions/recipeActions';
+import '../../css/typography.css';
+import './recipe-list.css';
 
-class Recipes extends Component {
+class RecipeList extends Component {
   componentWillMount() {
     this.props.fetchRecipesRequest();
     this.props.fetchRecipes();
@@ -27,7 +27,7 @@ class Recipes extends Component {
   }
 }
 
-Recipes.propTypes = {
+RecipeList.propTypes = {
   fetchRecipes: PropTypes.func.isRequired,
   fetchRecipesRequest: PropTypes.func.isRequired,
   recipes: PropTypes.array.isRequired,
@@ -43,4 +43,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { fetchRecipesRequest, fetchRecipes }
-)(Recipes);
+)(RecipeList);
