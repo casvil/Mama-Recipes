@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Recipe = props => {
+const Recipe = props => {
   return (
     <div className="recipes__recipe" key={props.recipe._id}>
       <h3 className="recipe__name">{props.recipe.name}</h3>
@@ -15,3 +15,5 @@ export const Recipe = props => {
     </div>
   );
 };
+
+export default Recipe;
