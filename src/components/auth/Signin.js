@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Button } from '@blueprintjs/core';
 
 import { authRequest, signIn } from '../../actions/authActions';
 import { routerHome } from '../../actions/routerActions';
@@ -45,9 +46,9 @@ class Signin extends Component {
           autoComplete="none"
           component={renderInput}
         />
-        <button type="submit" onClick={this.handleSubmit}>
+        <Button type="submit" onClick={this.handleSubmit}>
           Submit
-        </button>
+        </Button>
       </form>
     );
   }
