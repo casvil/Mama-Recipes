@@ -25,7 +25,8 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "test": "jest",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "pre-commit": "cd hola"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.49",
