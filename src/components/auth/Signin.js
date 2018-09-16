@@ -2,7 +2,14 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Button, FormGroup, InputGroup } from '@blueprintjs/core';
+import {
+  Button,
+  FormGroup,
+  InputGroup,
+  Tooltip,
+  Classes,
+  Position
+} from '@blueprintjs/core';
 
 import { authRequest, signIn } from '../../actions/authActions';
 import { routerHome } from '../../actions/routerActions';
@@ -12,19 +19,21 @@ import validate from '../../helpers/validate';
 // an input with props and if some parameters are true displays an span
 const renderInput = ({ input, meta, label, type }) => {
   return (
-    <FormGroup
-      label={label}
-      labelFor={`text-input-${label}`}
-      labelInfo="(required)"
-      inline={true}
-    >
-      <InputGroup
-        type={type}
-        {...input}
-        id={`text-input-${label}`}
-        placeholder={label}
-      />
-      {meta.error && meta.touched && <span>{meta.error}</span>}
+    <FormGroup label={label} labelFor={`text-input-${label}`} inline={true}>
+      <Tooltip
+        autoFocus={false}
+        className={Classes.TOOLTIP_INDICATOR}
+        content={<span>Required!</span>}
+        position={Position.RIGHT}
+        isOpen={meta.error && meta.touched}
+      >
+        <InputGroup
+          type={type}
+          {...input}
+          id={`text-input-${label}`}
+          placeholder={label}
+        />
+      </Tooltip>
     </FormGroup>
   );
 };
@@ -40,26 +49,28 @@ class Signin extends Component {
   };
   render() {
     return (
-      <div className="form">
-        Sign In into Mama Recipes!
-        <form>
-          <Field
-            name="email"
-            type="email"
-            label="Email"
-            component={renderInput}
-          />
-          <Field
-            name="password"
-            type="password"
-            label="Password"
-            autoComplete="none"
-            component={renderInput}
-          />
-          <Button type="submit" onClick={this.handleSubmit}>
-            Submit
-          </Button>
-        </form>
+      <div className="padded-X">
+        <h2>Sign In into Mama Recipes!</h2>
+        <div className="form padded-Y">
+          <form>
+            <Field
+              name="email"
+              type="email"
+              label="Email"
+              component={renderInput}
+            />
+            <Field
+              name="password"
+              type="password"
+              label="Password"
+              autoComplete="none"
+              component={renderInput}
+            />
+            <Button type="submit" onClick={this.handleSubmit}>
+              Submit
+            </Button>
+          </form>
+        </div>
       </div>
     );
   }

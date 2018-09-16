@@ -4,10 +4,12 @@ import { connect } from 'react-redux';
 class Home extends Component {
   render() {
     return this.props.authenticated ? (
-      <div>Welcome user!</div>
+      <div className="padded-X padded-Y">
+        <h2>Welcome user!</h2>
+      </div>
     ) : (
-      <div>
-        <div>Welcome to Mama Recipes</div>
+      <div className="padded-X padded-Y">
+        <h2>Welcome to Mama Recipes</h2>
         <div>A place to learn and create recipes</div>
         <ul>
           <li>Create, Edit and Share your own Recipes</li>
