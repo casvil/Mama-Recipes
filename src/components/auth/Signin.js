@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Button } from '@blueprintjs/core';
+import { Button, FormGroup, InputGroup } from '@blueprintjs/core';
 
 import { authRequest, signIn } from '../../actions/authActions';
 import { routerHome } from '../../actions/routerActions';
@@ -12,11 +12,20 @@ import validate from '../../helpers/validate';
 // an input with props and if some parameters are true displays an span
 const renderInput = ({ input, meta, label, type }) => {
   return (
-    <div>
-      <label>{label}</label>
-      <input type={type} {...input} />
+    <FormGroup
+      label={label}
+      labelFor={`text-input-${label}`}
+      labelInfo="(required)"
+      inline={true}
+    >
+      <InputGroup
+        type={type}
+        {...input}
+        id={`text-input-${label}`}
+        placeholder={label}
+      />
       {meta.error && meta.touched && <span>{meta.error}</span>}
-    </div>
+    </FormGroup>
   );
 };
 
@@ -31,25 +40,27 @@ class Signin extends Component {
   };
   render() {
     return (
-      <form>
-        Signin
-        <Field
-          name="email"
-          type="email"
-          label="Email"
-          component={renderInput}
-        />
-        <Field
-          name="password"
-          type="password"
-          label="Password"
-          autoComplete="none"
-          component={renderInput}
-        />
-        <Button type="submit" onClick={this.handleSubmit}>
-          Submit
-        </Button>
-      </form>
+      <div className="form">
+        Sign In into Mama Recipes!
+        <form>
+          <Field
+            name="email"
+            type="email"
+            label="Email"
+            component={renderInput}
+          />
+          <Field
+            name="password"
+            type="password"
+            label="Password"
+            autoComplete="none"
+            component={renderInput}
+          />
+          <Button type="submit" onClick={this.handleSubmit}>
+            Submit
+          </Button>
+        </form>
+      </div>
     );
   }
 }
